@@ -19,7 +19,7 @@
         🌐 <span id="ft-lang-label">हिंदी में देखें</span>
       </button>
       <a href="https://agrimachinery.nic.in/Farmer/Management/Index" target="_blank" rel="noopener" class="ft-btn-link" data-en="Official DBT Portal ↗" data-hi="आधिकारिक डीबीटी पोर्टल ↗">Official DBT Portal ↗</a>
-      <a href="https://agrimachinery.nic.in/index/tracking" target="_blank" rel="noopener" class="ft-btn-link-subtle" data-en="Track Status ↗" data-hi="आवेदन स्थिति देखें ↗">Track Status ↗</a>
+      <a href="https://agrimachinery.nic.in/index/ApplicationTracking" target="_blank" rel="noopener" class="ft-btn-link-subtle" data-en="Track Status ↗" data-hi="आवेदन स्थिति देखें ↗">Track Status ↗</a>
     </div>
   </div>
 
@@ -210,9 +210,9 @@
             <span class="ft-portal-name">Official Subsidy Calculator</span>
             <span class="ft-portal-url">agrimachinery.nic.in/index/assistanceCalculator</span>
           </a>
-          <a href="https://agrimachinery.nic.in/index/tracking" target="_blank" rel="noopener" class="ft-portal-card">
+          <a href="https://agrimachinery.nic.in/index/ApplicationTracking" target="_blank" rel="noopener" class="ft-portal-card">
             <span class="ft-portal-name">Track Application Status</span>
-            <span class="ft-portal-url">agrimachinery.nic.in/index/tracking</span>
+            <span class="ft-portal-url">agrimachinery.nic.in/index/ApplicationTracking</span>
           </a>
           <a id="ft-state-portal-card" href="https://wbfms.wb.gov.in/" target="_blank" rel="noopener" class="ft-portal-card" style="display:none;">
             <span id="ft-state-portal-title" class="ft-portal-name">State Agriculture Portal</span>
@@ -1084,7 +1084,7 @@
       `<b>Step 3 — Select Machine & Empanelled Dealer:</b> Choose machine from scheme-specific list. Select an authorised dealer who has current-year price quotes registered on the portal. System validates dealer + machine combination.`,
       `<b>Step 4 — Online Application & SLEC Approval:</b> Application submitted to State Level Executive Committee (SLEC). Digital sanction order issued. For CHC/FMB: DPR reviewed. For CRM: lottery / first-come selection process.`,
       `<b>Step 5 — Purchase & Physical Verification:</b> Buy machine from empanelled dealer. Upload invoice and geo-tagged installation photograph. District Agriculture Officer verifies physical delivery on site.`,
-      `<b>Step 6 — DBT Release to Bank Account:</b> Subsidy credited DIRECTLY to your Aadhaar-seeded bank account — no middleman, no cash. Track status at <a href="https://agrimachinery.nic.in/index/tracking" target="_blank" style="color:#1b4d3e;">Tracking Portal ↗</a>.`
+      `<b>Step 6 — DBT Release to Bank Account:</b> Subsidy credited DIRECTLY to your Aadhaar-seeded bank account — no middleman, no cash. Track status at <a href="https://agrimachinery.nic.in/index/ApplicationTracking" target="_blank" style="color:#1b4d3e;">Tracking Portal ↗</a>.`
     ];
     if (scheme === "CRM") steps.splice(1, 0, `<b>CRM-Specific — State Portal Pre-Registration (BEFORE central application):</b> Register on your state CRM portal first. Haryana → <a href="https://agriharyana.gov.in/MechCRMScheme" target="_blank" style="color:#1b4d3e;">Meri Fasal Mera Byora</a> | Punjab → <a href="https://agrimachinerypb.com/" target="_blank" style="color:#1b4d3e;">Subam Mechanization Portal</a> | Uttar Pradesh → <a href="http://upagriculture.com/" target="_blank" style="color:#1b4d3e;">UP Agriculture DBT Portal</a>. Register crop, land holding, and desired CRM machine choice.`);
     if (scheme === "CHC") {

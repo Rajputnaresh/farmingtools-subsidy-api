@@ -166,7 +166,7 @@
       `<b>Step 3 — Select Machine & Empanelled Dealer:</b> Choose machine from scheme-specific list. Select an authorised dealer who has current-year price quotes registered on the portal. System validates dealer + machine combination.`,
       `<b>Step 4 — Online Application & SLEC Approval:</b> Application submitted to State Level Executive Committee (SLEC). Digital sanction order issued. For CHC/FMB: DPR reviewed. For CRM: lottery / first-come selection process.`,
       `<b>Step 5 — Purchase & Physical Verification:</b> Buy machine from empanelled dealer. Upload invoice and geo-tagged installation photograph. District Agriculture Officer verifies physical delivery on site.`,
-      `<b>Step 6 — DBT Release to Bank Account:</b> Subsidy credited DIRECTLY to your Aadhaar-seeded bank account — no middleman, no cash. Track status at <a href="https://agrimachinery.nic.in/index/tracking" target="_blank" style="color:#1b4d3e;">Tracking Portal ↗</a>.`
+      `<b>Step 6 — DBT Release to Bank Account:</b> Subsidy credited DIRECTLY to your Aadhaar-seeded bank account — no middleman, no cash. Track status at <a href="https://agrimachinery.nic.in/index/ApplicationTracking" target="_blank" style="color:#1b4d3e;">Tracking Portal ↗</a>.`
     ];
 
     // Scheme-specific step insertions

@@ -1,9 +1,8 @@
-// Complete Real Browser End-to-End Test for Krishi Yantra Subsidy Widget
-// Zero npm dependencies - uses native Node 22 fetch + WebSocket connecting to Chrome CDP
 import { spawn } from 'node:child_process';
 import { setTimeout as sleep } from 'node:timers/promises';
 import fs from 'node:fs';
 import os from 'node:os';
+import path from 'node:path';
 
 const PORT = 9988;
 const CDP_PORT = 9223;
@@ -48,30 +47,40 @@ async function main() {
 
   // 2. Launch Google Chrome headless
   console.log(`2. Launching Headless Chrome on CDP port ${CDP_PORT} using ${CHROME_PATH}...`);
-  const chrome = spawn(CHROME_PATH, [
+  const tmpProfile = fs.mkdtempSync(path.join(os.tmpdir(), 'chrome-test-'));
+  const chromeArgs = [
     '--headless=new',
     '--no-sandbox',
     '--disable-setuid-sandbox',
-    `--remote-debugging-port=${CDP_PORT}`,
-    '--remote-debugging-address=127.0.0.1',
+    '--disable-dev-shm-usage',
     '--disable-gpu',
     '--no-first-run',
     '--no-default-browser-check',
+    `--user-data-dir=${tmpProfile}`,
+    `--remote-debugging-port=${CDP_PORT}`,
+    '--remote-debugging-address=127.0.0.1',
     `http://127.0.0.1:${PORT}/`
-  ], { stdio: 'ignore' });
+  ];
+  const chrome = spawn(CHROME_PATH, chromeArgs);
+  chrome.stderr?.on('data', (d) => {
+    const s = d.toString();
+    if (!s.includes('DevTools listening') && !s.includes('created a new window')) {
+      // Keep stderr quiet unless there is a fatal error
+    }
+  });
 
   let passed = true;
 
   try {
-    // 3. Connect to Chrome CDP with retry loop
+    // 3. Connect to Chrome CDP with retry loop (up to 20 attempts = 10s)
     let tabs = null;
-    for (let attempt = 1; attempt <= 12; attempt++) {
+    for (let attempt = 1; attempt <= 20; attempt++) {
       try {
         const tabsRes = await fetch(`http://127.0.0.1:${CDP_PORT}/json`);
         tabs = await tabsRes.json();
         if (tabs && tabs.length > 0) break;
       } catch (err) {
-        if (attempt === 12) throw err;
+        if (attempt === 20) throw err;
         await sleep(500);
       }
     }
@@ -114,7 +123,9 @@ async function main() {
     // Enable Runtime domain
     await sendCommand('Runtime.enable');
     await sendCommand('Page.enable');
-    await sleep(1000);
+    console.log(`  Navigating Chrome to http://127.0.0.1:${PORT}/...`);
+    await sendCommand('Page.navigate', { url: `http://127.0.0.1:${PORT}/` });
+    await sleep(3000);
 
     async function evaluate(expression) {
       const res = await sendCommand('Runtime.evaluate', {
@@ -314,8 +325,9 @@ async function main() {
     console.error('❌ Browser Test Error:', err);
     passed = false;
   } finally {
-    chrome.kill('SIGTERM');
-    server.kill('SIGTERM');
+    try { chrome.kill('SIGTERM'); } catch {}
+    try { server.kill('SIGTERM'); } catch {}
+    try { fs.rmSync(tmpProfile, { recursive: true, force: true }); } catch {}
   }
 
   console.log('\n====================================================');

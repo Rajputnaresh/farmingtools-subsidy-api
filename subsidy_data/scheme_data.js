@@ -239,7 +239,7 @@ var SCHEME_DOCS = {
 var CENTRAL_PORTLINKS = {
   "dbt_portal": "https://agrimachinery.nic.in/Farmer/Management/Index",
   "calculator": "https://agrimachinery.nic.in/index/assistanceCalculator",
-  "tracking": "https://agrimachinery.nic.in/index/tracking",
+  "tracking": "https://agrimachinery.nic.in/index/ApplicationTracking",
   "guidelines_smam_2024": "https://agrimachinery.nic.in/Files/Guidelines/Guidelines_SMAM2024.pdf",
   "guidelines_smam_2018": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
   "guidelines_crm_2020": "https://agrimachinery.nic.in/Files/Guidelines/CRMGuideline2020-21.pdf",
