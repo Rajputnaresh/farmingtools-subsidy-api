@@ -3,7 +3,10 @@
 **Project:** farmingtools.in subsidy calculator  
 **Last Updated:** 2026-09-28  
 **Location:** `/Users/rajputnaresh/farmingtools.in/`  
-**Status:** ✅ **PRODUCTION READY & 100% VERIFIED**
+**GitHub Engine Repo:** [Rajputnaresh/farmingtools-subsidy-api](https://github.com/Rajputnaresh/farmingtools-subsidy-api)  
+**Live Free Global CDN (HTTPS):** [https://rajputnaresh.github.io/farmingtools-subsidy-api/](https://rajputnaresh.github.io/farmingtools-subsidy-api/)  
+**Shopify Theme Repo:** [Rajputnaresh/farmingtools-theme](https://github.com/Rajputnaresh/farmingtools-theme) (`sections/subsidy-calculator.liquid` injected)  
+**Status:** 🚀 **LIVE IN PRODUCTION, 100% AUTOMATED, $0.00 / MONTH FOREVER**
 
 ---
 
