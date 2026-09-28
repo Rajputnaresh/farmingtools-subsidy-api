@@ -5111,8 +5111,47 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = { FULL_D
   function initUI() {
     populateStateDropdown();
     populateMachineDropdown("ALL");
+    applyUrlParams();
     runCalculation();
     syncWithCDN();
+  }
+
+  function applyUrlParams() {
+    try {
+      if (typeof window === "undefined" || !window.location) return;
+      var p = new URLSearchParams(window.location.search);
+      var qScheme = p.get("scheme");
+      var qState = p.get("state");
+      var qSearch = p.get("search") || p.get("q") || "";
+      var qMachine = p.get("machine");
+
+      if (qScheme && document.getElementById("ft-scheme")) {
+        document.getElementById("ft-scheme").value = qScheme;
+      }
+
+      if (qState && document.getElementById("ft-state")) {
+        var stateEl = document.getElementById("ft-state");
+        for (var i = 0; i < stateEl.options.length; i++) {
+          if (stateEl.options[i].value.toUpperCase() === qState.toUpperCase() ||
+              stateEl.options[i].textContent.toLowerCase().includes(qState.toLowerCase())) {
+            stateEl.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      if (qSearch) {
+        var sInput = document.getElementById("ft-machine-search");
+        if (sInput) {
+          sInput.value = qSearch;
+          onSearchChange();
+        }
+      } else if (qMachine && document.getElementById("ft-machine")) {
+        document.getElementById("ft-machine").value = qMachine;
+      }
+    } catch (e) {
+      console.warn("Could not apply URL parameters", e);
+    }
   }
 
   function syncWithCDN() {

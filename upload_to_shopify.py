@@ -153,6 +153,33 @@ def main():
     put_asset("templates/page.government-subsidy-farm-equipment-2026.json", json.dumps(page_gov_subsidy, indent=2))
     put_asset("templates/page.subsidy-calculator.json", json.dumps(page_gov_subsidy, indent=2))
 
+    # 5. Upload all site-wide linking sections and snippets from local live theme folder
+    theme_live_dir = Path("/Users/rajputnaresh/Documents/Claude Co-Work/farmingtools-theme-live")
+    files_to_upload = [
+        "snippets/ft-guide-footer-enhancement.liquid",
+        "sections/ft-redesign-pdp.liquid",
+        "sections/ft-collection-head.liquid",
+        "sections/ft-buying-guide-article.liquid",
+        "sections/main-blog.liquid",
+        "sections/ft-comparison-index.liquid",
+        "sections/ft-comparison-page.liquid",
+        "sections/ft-machine-advisor.liquid",
+        "sections/ft-redesign-guides.liquid",
+        "sections/main-page.liquid",
+    ]
+
+    print("\n[5/5] Uploading sitewide subsidy linking sections & snippets...")
+    for rel_path in files_to_upload:
+        full_path = theme_live_dir / rel_path
+        if full_path.exists():
+            with open(full_path, "r", encoding="utf-8") as f:
+                content = f.read()
+            ok = put_asset(rel_path, content)
+            if not ok:
+                print(f"Failed uploading {rel_path}")
+        else:
+            print(f"Warning: File not found: {full_path}")
+
     print("\nAll live theme assets uploaded and verified successfully!")
 
 if __name__ == "__main__":
