@@ -7,14 +7,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'build_multi_scheme_master.py'
-      - 'subsidy_calculator.py'
-      - 'subsidy_api.py'
-      - 'subsidy_widget.html'
-      - 'export_subsidy_data.py'
-      - 'lambda_function.py'
-      - 'data/**'
   workflow_dispatch:
     inputs:
       force_rebuild:
@@ -67,6 +59,8 @@ jobs:
           python3 monitor_official_sources.py
 
       - name: 🧪 Run Headless Chrome CDP Browser Verification
+        env:
+          CHROME_BIN: /usr/bin/google-chrome
         run: |
           node browser_test.mjs
 
