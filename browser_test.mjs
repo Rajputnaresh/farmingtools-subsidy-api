@@ -53,19 +53,28 @@ async function main() {
     '--no-sandbox',
     '--disable-setuid-sandbox',
     `--remote-debugging-port=${CDP_PORT}`,
+    '--remote-debugging-address=127.0.0.1',
     '--disable-gpu',
     '--no-first-run',
     '--no-default-browser-check',
-    `http://localhost:${PORT}/`
+    `http://127.0.0.1:${PORT}/`
   ], { stdio: 'ignore' });
-  await sleep(2000);
 
   let passed = true;
 
   try {
-    // 3. Connect to Chrome CDP
-    const tabsRes = await fetch(`http://localhost:${CDP_PORT}/json`);
-    const tabs = await tabsRes.json();
+    // 3. Connect to Chrome CDP with retry loop
+    let tabs = null;
+    for (let attempt = 1; attempt <= 12; attempt++) {
+      try {
+        const tabsRes = await fetch(`http://127.0.0.1:${CDP_PORT}/json`);
+        tabs = await tabsRes.json();
+        if (tabs && tabs.length > 0) break;
+      } catch (err) {
+        if (attempt === 12) throw err;
+        await sleep(500);
+      }
+    }
     const pageTab = tabs.find(t => t.type === 'page');
     if (!pageTab || !pageTab.webSocketDebuggerUrl) {
       throw new Error('Could not find Chrome page tab WebSocket URL');
