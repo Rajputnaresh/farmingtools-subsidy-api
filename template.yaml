@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: FarmingTools.in Multi-Scheme Subsidy Calculator & Widget Engine
+
+Globals:
+  Function:
+    Timeout: 10
+    MemorySize: 256
+    Runtime: python3.11
+    Architectures:
+      - arm64 # Graviton2 (cheapest & fastest)
+
+Resources:
+  SubsidyCalculatorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: farmingtools-subsidy-api
+      Description: Multi-scheme subsidy calculation engine and widget server
+      Handler: lambda_function.lambda_handler
+      CodeUri: .
+      FunctionUrlConfig:
+        AuthType: NONE
+        Cors:
+          AllowOrigins:
+            - '*'
+          AllowMethods:
+            - GET
+            - POST
+            - OPTIONS
+          AllowHeaders:
+            - Content-Type
+            - Authorization
+            - X-Requested-With
+          MaxAge: 86400
+
+Outputs:
+  FunctionUrlEndpoint:
+    Description: "Direct Public HTTPS Function URL (Zero-cost, Shopify CORS enabled)"
+    Value: !GetAtt SubsidyCalculatorFunctionUrl.FunctionUrl

@@ -1,0 +1,51 @@
+name: Subsidy Pipeline & Verification Cron
+
+on:
+  schedule:
+    # Run daily freshness check at 03:00 UTC
+    - cron: '0 3 * * *'
+    # Run weekly refresh and diff audit every Monday at 02:00 UTC
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Execution mode'
+        required: true
+        default: 'weekly'
+        type: choice
+        options:
+          - daily
+          - weekly
+          - monthly
+          - full
+
+jobs:
+  subsidy-cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run Subsidy Data Cron
+        run: |
+          MODE="${{ github.event.inputs.mode || 'daily' }}"
+          echo "Running subsidy_cron.py in mode: $MODE"
+          python3 subsidy_cron.py "$MODE"
+
+      - name: Verify End-to-End API & Engine
+        run: |
+          python3 end_to_end_verify.py
+
+      - name: Run Multi-Scheme 10-Machine Regression Audit
+        run: |
+          python3 verify_10_machines.py

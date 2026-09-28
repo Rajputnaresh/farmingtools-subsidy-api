@@ -1,0 +1,2021 @@
+{
+  "machines": [
+    {
+      "name": "incurring administrative and other contingent expenses towards the above. SMAM2024 PAGE 20 Annexure-I Pattern of Assistance and Maximum Permissible Subsidy Type of Agricultural Machinery For SC ST Small For other beneficiary Marginal farmers Women and NE States beneficiary Maximum Pattern of Maximum Pattern of Permissible Assistance Permissible Assistance subsidy per subsidy per Machine/ Machine/ Equipment per Equipment beneficiary (Rs per in Lakhs) beneficiary (Rs. in Lakhs) Tractors Seapy oh 8 ae (i) Tractor 2WD (up to 20 PTO HP",
+      "category_50_rp": 200000,
+      "category_40_rp": 160000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Tractor 4WD (up to 20 PTO HP",
+      "category_50_rp": 245000,
+      "category_40_rp": 196000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) Tractor 2WD (above 20 PTO HP",
+      "category_50_rp": 300000,
+      "category_40_rp": 240000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "v) Tractor 2WD (above 40 PTO HP",
+      "category_50_rp": 450000,
+      "category_40_rp": 360000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vi) Tractor 4WD (above 40 PTO HP",
+      "category_50_rp": 545000,
+      "category_40_rp": 436000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vii) Tractor 2 WD (Above 50 PTO",
+      "category_50_rp": 600000,
+      "category_40_rp": 480000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "viii) Tractor 4 WD (Above 50 PTO",
+      "category_50_rp": 650000,
+      "category_40_rp": 520000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Power Tiller (8 BHP and up to 11",
+      "category_50_rp": 100000,
+      "category_40_rp": 80000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii Power Tiller (Above 11 BHP",
+      "category_50_rp": 120000,
+      "category_40_rp": 100000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Combine Harvester (self-",
+      "category_50_rp": 960000,
+      "category_40_rp": 768000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) Combine Harvester -Tractor",
+      "category_50_rp": 360000,
+      "category_40_rp": 288000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iv) Combine Harvester-Chopper-",
+      "category_50_rp": 400000,
+      "category_40_rp": 320000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vii) Combine Harvester (Track",
+      "category_50_rp": 1250000,
+      "category_40_rp": 1000000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "viii) Combine harvester (Tractor",
+      "category_50_rp": 1200000,
+      "category_40_rp": 960000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ix) Sugarcane harvester (Self",
+      "category_50_rp": 5000000,
+      "category_40_rp": 4000000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "x Maize Combine Harvester (Self-",
+      "category_50_rp": 1200000,
+      "category_40_rp": 960000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "Kisan Drone -",
+      "category_50_rp": 500000,
+      "category_40_rp": 400000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Self-Propelled Rice",
+      "category_50_rp": 170000,
+      "category_40_rp": 136000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) Self-Propelled Rice",
+      "category_50_rp": 600000,
+      "category_40_rp": 480000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iii) Self-Propelled Rice",
+      "category_50_rp": 860000,
+      "category_40_rp": 688000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Crop Reaper cum 7 Binder G",
+      "category_50_rp": 190000,
+      "category_40_rp": 4000000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) Crop Reaper cum Binder (4",
+      "category_50_rp": 275000,
+      "category_40_rp": 4000000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iii) Power Weeder (engine operated",
+      "category_50_rp": 30000,
+      "category_40_rp": 4000000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iv) Power Weeder (engine operated",
+      "category_50_rp": 40000,
+      "category_40_rp": 32000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "v) Power Weeder (engine operated",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vi Power Weeder (engine operated",
+      "category_50_rp": 85000,
+      "category_40_rp": 4000000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vii) Crop Reaper (Diesel/Petrol",
+      "category_50_rp": 85000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "viii) Post Hole Digger/Auger self",
+      "category_50_rp": 20000,
+      "category_40_rp": 4000000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ix) Pneumatic/Other planter",
+      "category_50_rp": 125000,
+      "category_40_rp": 100000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "x)_ Areca nut climber harvester",
+      "category_50_rp": 30000,
+      "category_40_rp": 24000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xi) Tea leaf harvester (Hand held",
+      "category_50_rp": 11000,
+      "category_40_rp": 8800,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xii) Self-propelled 4 wheel tea leaf",
+      "category_50_rp": 1500000,
+      "category_40_rp": 1200000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xiii) Self-Propelled Tool Bar (Ride",
+      "category_50_rp": 155000,
+      "category_40_rp": 124000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xiv) Self-Propelled electric",
+      "category_50_rp": 175000,
+      "category_40_rp": 4000000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xi)__Track Trolley a",
+      "category_50_rp": 210000,
+      "category_40_rp": 168000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xiii) Nursery Media Filling Machine",
+      "category_50_rp": 210000,
+      "category_40_rp": 168000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xiv) Multipurpose Hydraulic",
+      "category_50_rp": 210000,
+      "category_40_rp": 168000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xv) Power operated horticulture",
+      "category_50_rp": 35000,
+      "category_40_rp": 28000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xvi) Brush Cutter (Electric/Engine",
+      "category_50_rp": 25000,
+      "category_40_rp": 20000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xvii) Self-propelled Maize Harvester",
+      "category_50_rp": 85000,
+      "category_40_rp": 68000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xviii) Electric Tiller/ Weeder",
+      "category_50_rp": 63000,
+      "category_40_rp": 50400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "a) Single Row",
+      "category_50_rp": 150000,
+      "category_40_rp": 120000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "t (b) Two Row",
+      "category_50_rp": 700000,
+      "category_40_rp": 560000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) MB Plough (Single Bottom-",
+      "category_50_rp": 25000,
+      "category_40_rp": 20000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iii) Disc Plough",
+      "category_50_rp": 25000,
+      "category_40_rp": 20000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "Cultivator",
+      "category_50_rp": 20000,
+      "category_40_rp": 16000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "Harrow",
+      "category_50_rp": 15000,
+      "category_40_rp": 12000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i i) leveler Blade",
+      "category_50_rp": 16000,
+      "category_40_rp": 12800,
+      "priority_percentage": 50,
+      "general_percentage": 0,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Post Hole digger",
+      "category_50_rp": 40000,
+      "category_40_rp": 32000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii Potato Planter",
+      "category_50_rp": 33000,
+      "category_40_rp": 26400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iii) Potato Digger",
+      "category_50_rp": 30000,
+      "category_40_rp": 24000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "Ground nut digger",
+      "category_50_rp": 18000,
+      "category_40_rp": 14399,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "Strip till drill (5 tines",
+      "category_50_rp": 60000,
+      "category_40_rp": 48000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vi) Tractor drawn crop reaper/",
+      "category_50_rp": 33000,
+      "category_40_rp": 26400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vii) Onion harvester",
+      "category_50_rp": 33000,
+      "category_40_rp": 26400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "viii) Rice straw Chopper",
+      "category_50_rp": 25000,
+      "category_40_rp": 20000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Sugarcane thrash Cutter",
+      "category_50_rp": 25000,
+      "category_40_rp": 20000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) Coconut Frond Chopper",
+      "category_50_rp": 30000,
+      "category_40_rp": 24000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "Winnowing fan (vii) Maize Sheller (viii) Mower ix) Flail Harvester (x) Mower Shredder (ALL PURPOSE / All crops F. Chaff Cutter (Operated by engine/electric motor below 3 HP and by power tiller and tractor of below 20 BHP tractor equipments. Page 22 Tractor (above 20-. 35. BHP) driven epee 50%",
+      "category_50_rp": 30400,
+      "category_40_rp": 30400,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iv) Cultivator",
+      "category_50_rp": 18000,
+      "category_40_rp": 18000,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "Vv Harrow",
+      "category_50_rp": 28000,
+      "category_40_rp": 28000,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vi) _Leveler Blade",
+      "category_50_rp": 18000,
+      "category_40_rp": 18000,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vii) Cage wheel 0.18",
+      "category_50_rp": 500000,
+      "category_40_rp": 500000,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "viii) Ridger",
+      "category_50_rp": 15000,
+      "category_40_rp": 1200000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "x) _ Rotopuddler",
+      "category_50_rp": 63000,
+      "category_40_rp": 50400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xi) Furrow opener",
+      "category_50_rp": 18000,
+      "category_40_rp": 14399,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xiii) Crust breaker",
+      "category_50_rp": 13000,
+      "category_40_rp": 10400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xiv) Rotocultivator 0.43",
+      "category_50_rp": 34400,
+      "category_40_rp": 34400,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xv) Power Harrow 0.63",
+      "category_50_rp": 50400,
+      "category_40_rp": 50400,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i Rotavator_up to 5 feet",
+      "category_50_rp": 46000,
+      "category_40_rp": 46000,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xvii) Chisel Plough",
+      "category_50_rp": 25000,
+      "category_40_rp": 25000,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii Potato Planter (iii) _ Potato Digger iv) Ground nut digger",
+      "category_50_rp": 40000,
+      "category_40_rp": 32000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ix) Multi crop planter",
+      "category_50_rp": 50000,
+      "category_40_rp": 40000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "x) Ridge furrow planter",
+      "category_50_rp": 45000,
+      "category_40_rp": 36000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xi) Zero Till Drill - Multi Crop (7",
+      "category_50_rp": 23000,
+      "category_40_rp": 18400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xii) Seed treating drum",
+      "category_50_rp": 18000,
+      "category_40_rp": 14399,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xiii) Seed cum fertilizer drill (",
+      "category_50_rp": 700000,
+      "category_40_rp": 18400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xiv) Direct Rice Seeder (DSR- 7",
+      "category_50_rp": 18400,
+      "category_40_rp": 18400,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xv) _ Pneumatic Planter (04 rows .",
+      "category_50_rp": 160000,
+      "category_40_rp": 160000,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xvi) Pneumatic vegetable",
+      "category_50_rp": 200000,
+      "category_40_rp": 160000,
+      "priority_percentage": 0,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xvii) Pneumatic vegetable seeder",
+      "category_50_rp": 200000,
+      "category_40_rp": 160000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xviii) Plastic Mulch Laying Machine",
+      "category_50_rp": 50000,
+      "category_40_rp": 40000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xix) Aqua ferti seed drill (9tines",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xx) Raised Bed Planter with",
+      "category_50_rp": 83000,
+      "category_40_rp": 66400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "LG Grass Weed Slasher",
+      "category_50_rp": 39000,
+      "category_40_rp": 31200,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) Inter row cum intra row",
+      "category_50_rp": 50000,
+      "category_40_rp": 40000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Sugarcane thrash Cutter",
+      "category_50_rp": 50000,
+      "category_40_rp": 40000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) Coconut Frond Chopper",
+      "category_50_rp": 50000,
+      "category_40_rp": 40000,
+      "priority_percentage": 30,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iii) Rake (small capacity",
+      "category_50_rp": 110000,
+      "category_40_rp": 88000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iv) Balers(Round) (up to 16 kg",
+      "category_50_rp": 220000,
+      "category_40_rp": 176000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "v) Balers(Round) (Above 16 and",
+      "category_50_rp": 240000,
+      "category_40_rp": 192000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "L vi) Straw reaper",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vii) Feed block machine(100- 200",
+      "category_50_rp": 150000,
+      "category_40_rp": 96000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "viii) Stubble shaver",
+      "category_50_rp": 43000,
+      "category_40_rp": 34400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ix) Straw",
+      "category_50_rp": 72500,
+      "category_40_rp": 57999,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "x) Trailer/Trolley (upto 3 Ton",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xi) Trailer/Trolley (upto 5 Ton",
+      "category_50_rp": 100000,
+      "category_40_rp": 80000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xii) Narrow Rear Rim (one pair",
+      "category_50_rp": 8000,
+      "category_40_rp": 6400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xv) Tractor front mounted straw",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Ground Nut Pod Stripper",
+      "category_50_rp": 50000,
+      "category_40_rp": 40000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "Gi) Thresher",
+      "category_50_rp": 100000,
+      "category_40_rp": 80000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iii) Multi crop Threshers",
+      "category_50_rp": 125000,
+      "category_40_rp": 100000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iv) Paddy Thresher",
+      "category_50_rp": 100000,
+      "category_40_rp": 80000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "v) Brush Cutter",
+      "category_50_rp": 44000,
+      "category_40_rp": 35200,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vil Maize Sheller",
+      "category_50_rp": 100000,
+      "category_40_rp": 80000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vii) Mower",
+      "category_50_rp": 40000,
+      "category_40_rp": 32000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "viii) _ Flail Harvester",
+      "category_50_rp": 40000,
+      "category_40_rp": 32000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ix) Mower Shredder (ALL",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "x) Crop Reaper cum binder",
+      "category_50_rp": 125000,
+      "category_40_rp": 100000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "F. Chaff Cutter (Operated by",
+      "category_50_rp": 34000,
+      "category_40_rp": 27200,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Disc Plough (3 Bottom",
+      "category_50_rp": 50000,
+      "category_40_rp": 40000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) Cultivator (9-13 tines",
+      "category_50_rp": 25000,
+      "category_40_rp": 20000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "v) Leveler Blade",
+      "category_50_rp": 70000,
+      "category_40_rp": 56000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vi) Cage wheel",
+      "category_50_rp": 20000,
+      "category_40_rp": 16000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "sit Furrow opener",
+      "category_50_rp": 33000,
+      "category_40_rp": 26400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "viii) _Ridger",
+      "category_50_rp": 33000,
+      "category_40_rp": 26400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxv) Rotocultivator",
+      "category_50_rp": 100000,
+      "category_40_rp": 80000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxvi) Power Harrow (PTO operated",
+      "category_50_rp": 135000,
+      "category_40_rp": 108000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxvii) Rotary Disc Harrow (PTO",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxviii) Stone collector",
+      "category_50_rp": 150000,
+      "category_40_rp": 120000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxix) Rotaridger",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxx) Check Basin Former",
+      "category_50_rp": 38000,
+      "category_40_rp": 30400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Raised Bed Planter",
+      "category_50_rp": 55000,
+      "category_40_rp": 44000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "a) 9 tines",
+      "category_50_rp": 25000,
+      "category_40_rp": 20000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "b) 11 tines",
+      "category_50_rp": 26000,
+      "category_40_rp": 20800,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "c 13 tines",
+      "category_50_rp": 28000,
+      "category_40_rp": 22400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "d) 15 tines",
+      "category_50_rp": 30000,
+      "category_40_rp": 24000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "a) 9 tines",
+      "category_50_rp": 45000,
+      "category_40_rp": 36000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "b) 11 tines",
+      "category_50_rp": 48000,
+      "category_40_rp": 43200,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "c) 13 tines",
+      "category_50_rp": 50000,
+      "category_40_rp": 40000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iv) Inclined Plate Planter with",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "v) Sugarcane settling Planter",
+      "category_50_rp": 63000,
+      "category_40_rp": 50400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vi) Post Hole digger (24 inch and",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "x) Zero -till multi crop planter",
+      "category_50_rp": 53000,
+      "category_40_rp": 42400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xi) Multi crop planter (9 tines",
+      "category_50_rp": 90000,
+      "category_40_rp": 72000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "a)___09 Tynes",
+      "category_50_rp": 81400,
+      "category_40_rp": 65100,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "b) 10 Tynes",
+      "category_50_rp": 84200,
+      "category_40_rp": 67400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "c 11 Tynes",
+      "category_50_rp": 86400,
+      "category_40_rp": 69100,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "d) 12 Tynes",
+      "category_50_rp": 90200,
+      "category_40_rp": 72200,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "a) 6 Feet",
+      "category_50_rp": 130000,
+      "category_40_rp": 104000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "b) 7 Feet",
+      "category_50_rp": 135000,
+      "category_40_rp": 108000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "d) 9 Feet",
+      "category_50_rp": 155000,
+      "category_40_rp": 124000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "LL (e) 10 Feet",
+      "category_50_rp": 165000,
+      "category_40_rp": 132000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "a) 5 Feet",
+      "category_50_rp": 60000,
+      "category_40_rp": 48000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "b) 6 Feet",
+      "category_50_rp": 68000,
+      "category_40_rp": 54000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xv) Pneumatic Planter",
+      "category_50_rp": 225000,
+      "category_40_rp": 180000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xvi) Pneumatic semi-automatic",
+      "category_50_rp": 225000,
+      "category_40_rp": 180000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xvii) Pneumatic Vegetable Seeder",
+      "category_50_rp": 225000,
+      "category_40_rp": 180000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xviii) Cassava Planter (9 tines",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xix) Manure spreader",
+      "category_50_rp": 150000,
+      "category_40_rp": 120000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xx) Urea Deep Placement",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxi) Fertilizer Spreader - PTO",
+      "category_50_rp": 40000,
+      "category_40_rp": 4000000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxii) Plastic Mulch Laying",
+      "category_50_rp": 50000,
+      "category_40_rp": 40000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxiii) Automatic rice nursery",
+      "category_50_rp": 175000,
+      "category_40_rp": 140000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxiv) Aqua ferti seed drill (9 tines",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxv) Raised Bed Planter with",
+      "category_50_rp": 60000,
+      "category_40_rp": 48000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxvi) Precision Multi-crop",
+      "category_50_rp": 250000,
+      "category_40_rp": 200000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxvii) Precision Seed Drills",
+      "category_50_rp": 80000,
+      "category_40_rp": 64000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxviii)Precision fertilizer",
+      "category_50_rp": 200000,
+      "category_40_rp": 160000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxix) Tractor operated seeder for",
+      "category_50_rp": 150000,
+      "category_40_rp": 120000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vi) Crop Reaper cum Binder (tractor drawn) _",
+      "category_50_rp": 150000,
+      "category_40_rp": 150000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vii) Thresher/Multi crop",
+      "category_50_rp": 225000,
+      "category_40_rp": 180000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "viii) Infielder",
+      "category_50_rp": 100000,
+      "category_40_rp": 80000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ix) Mower",
+      "category_50_rp": 100000,
+      "category_40_rp": 80000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "x) Flail Harvester",
+      "category_50_rp": 125000,
+      "category_40_rp": 100000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xi) Mower shredder (All",
+      "category_50_rp": 125000,
+      "category_40_rp": 100000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xii) Potato Digger",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xiii) Tractor operated",
+      "category_50_rp": 100000,
+      "category_40_rp": 80000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xiv) Tractor operated",
+      "category_50_rp": 100000,
+      "category_40_rp": 80000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xv) Motorized Harvesting",
+      "category_50_rp": 50000,
+      "category_40_rp": 40000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xvi) Tractor drawn crop",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xvii) Onion harvester",
+      "category_50_rp": 80000,
+      "category_40_rp": 64000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Sugarcane thrash Cutter",
+      "category_50_rp": 138000,
+      "category_40_rp": 110400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ti) Coconut Frond Chopper",
+      "category_50_rp": 150000,
+      "category_40_rp": 120000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "a) 6 Arms",
+      "category_50_rp": 165000,
+      "category_40_rp": 132000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "b) 9 Arms",
+      "category_50_rp": 200000,
+      "category_40_rp": 160000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "c) 11 Arms",
+      "category_50_rp": 238000,
+      "category_40_rp": 190400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "a) Round - Mini up to 16",
+      "category_50_rp": 200000,
+      "category_40_rp": 160000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "c) Round big more than 180",
+      "category_50_rp": 990000,
+      "category_40_rp": 792000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "d) Round - more big - above",
+      "category_50_rp": 1700000,
+      "category_40_rp": 1360000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "e) Rectangular - up to 20 kg",
+      "category_50_rp": 660000,
+      "category_40_rp": 528000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "e) Rectangular - more than",
+      "category_50_rp": 1700000,
+      "category_40_rp": 1360000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "v) Silage Baler (1400-1500",
+      "category_50_rp": 375000,
+      "category_40_rp": 300000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vi) Wood chippers",
+      "category_50_rp": 138000,
+      "category_40_rp": 110000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vii) Sugarcane ratoon manager",
+      "category_50_rp": 125000,
+      "category_40_rp": 140000000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "viii) Cotton stalk uprooter",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ix) Cotton stalk shredder",
+      "category_50_rp": 75000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "x) Straw reaper",
+      "category_50_rp": 150000,
+      "category_40_rp": 120000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xi) Feed block machine (above",
+      "category_50_rp": 300000,
+      "category_40_rp": 240000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xii) Stubble shaver",
+      "category_50_rp": 88000,
+      "category_40_rp": 70400,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "a) Mounted type 5 ft",
+      "category_50_rp": 72500,
+      "category_40_rp": 57999,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "b) Mounted type 6 ft",
+      "category_50_rp": 85800,
+      "category_40_rp": 68600,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "c) Mounted type 7 ft",
+      "category_50_rp": 90200,
+      "category_40_rp": 72200,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "d) Mounted type 8 ft",
+      "category_50_rp": 95700,
+      "category_40_rp": 76600,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "e) _ Trailed type",
+      "category_50_rp": 147100,
+      "category_40_rp": 117900,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "f) Trailed (Combo type",
+      "category_50_rp": 200000,
+      "category_40_rp": 160000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xvi) Super Straw Management",
+      "category_50_rp": 59700,
+      "category_40_rp": 47800,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xviii) Shrub Master/Cutter cum",
+      "category_50_rp": 27500,
+      "category_40_rp": 22000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xix) Rotary Straw Slasher",
+      "category_50_rp": 27500,
+      "category_40_rp": 22000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xx) Tractor front mounted straw",
+      "category_50_rp": 305000,
+      "category_40_rp": 244000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxi) Tractor Operated Hydraulic",
+      "category_50_rp": 700000,
+      "category_40_rp": 560000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Up to0.5 TPH -",
+      "category_50_rp": 150000,
+      "category_40_rp": 120000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) More than 0.5 TPH and up to",
+      "category_50_rp": 180000,
+      "category_40_rp": 144000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iii) Above 1.0 TPH",
+      "category_50_rp": 240000,
+      "category_40_rp": 192000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Capacity more than 500 kg/hr and",
+      "category_50_rp": 540000,
+      "category_40_rp": 432000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) Capacity - 1000 kg/hr and above",
+      "category_50_rp": 960000,
+      "category_40_rp": 768000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iv) Capacity -150 kg/hr and above",
+      "category_50_rp": 350000,
+      "category_40_rp": 280000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Capacity - 40-60 kg/hr",
+      "category_50_rp": 60000,
+      "category_40_rp": 48000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "it) Capacity - More than 60 kg/h",
+      "category_50_rp": 90000,
+      "category_40_rp": 72000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iii) Capacity 100 kg/hr and above",
+      "category_50_rp": 540000,
+      "category_40_rp": 432000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i) Capacity from 100 to 200",
+      "category_50_rp": 540000,
+      "category_40_rp": 432000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) Capacity more than 200",
+      "category_50_rp": 960000,
+      "category_40_rp": 768000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "Multipurpose Millet Thresher",
+      "category_50_rp": 30000,
+      "category_40_rp": 24000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "g) Double Stage Millet de-husker",
+      "category_50_rp": 90000,
+      "category_40_rp": 4000000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "h) Centrifugal de-huller for Millets 0.72",
+      "category_50_rp": 57599,
+      "category_40_rp": 57599,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ij) Double headed centrifugal de-",
+      "category_50_rp": 45000,
+      "category_40_rp": 4000000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "Millet flaking machine",
+      "category_50_rp": 60000,
+      "category_40_rp": 60000,
+      "priority_percentage": 590,
+      "general_percentage": 590,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "k)_ Millet popping machine",
+      "category_50_rp": 60000,
+      "category_40_rp": 60000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "l) Pedal operated cleaner cum",
+      "category_50_rp": 15000,
+      "category_40_rp": 15000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "m) Mini Oil Mill/Expeller with filter",
+      "category_50_rp": 300000,
+      "category_40_rp": 300000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "n) Mini Oil Mill without filer press",
+      "category_50_rp": 180000,
+      "category_40_rp": 180000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "o) Pomegranate Aril Extractor",
+      "category_50_rp": 180000,
+      "category_40_rp": 144000,
+      "priority_percentage": 50,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) Capacity -1 TPH and less 1.62",
+      "category_50_rp": 129600,
+      "category_40_rp": 129600,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iii) Capacity -2 TPH and above 2.76",
+      "category_50_rp": 220800,
+      "category_40_rp": 220800,
+      "priority_percentage": 40,
+      "general_percentage": 40,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "bb) Grain Pick up and weighing a Page 7 (32 SMAM2024 PAGE 34 (i) Capacity - less than 1 TPH",
+      "category_50_rp": 800000,
+      "category_40_rp": 800000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iii) Capacity -2 TPH and above",
+      "category_50_rp": 1400000,
+      "category_40_rp": 1400000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "cc) Broom Stick Extractor",
+      "category_50_rp": 7199,
+      "category_40_rp": 7199,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "dd) Grain Collector",
+      "category_50_rp": 63000,
+      "category_40_rp": 63000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ff Papad/Chips making machine",
+      "category_50_rp": 90000,
+      "category_40_rp": 90000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "jj) Pedal operated cleaner cum 0.15 grader for millet Structure (1-5 ton capacity) (kk) Modular Onion Storage",
+      "category_50_rp": 15000,
+      "category_40_rp": 15000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ll) Moringa Leaf Stripper",
+      "category_50_rp": 30000,
+      "category_40_rp": 30000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "Page 33 SMAM2024 PAGE 35 Plant Protection Equipments (i) Manual sprayer Knapsack/foot/ Battery operated sprayer.",
+      "category_50_rp": 1000,
+      "category_40_rp": 1000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "ii) Solar powered Knapsack Sprayer",
+      "category_50_rp": 2000,
+      "category_40_rp": 2000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iii) Bullock Cart mounted solar powered high clearance sprayer",
+      "category_50_rp": 40000,
+      "category_40_rp": 40000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "iv) Bullock Cart mounted air mist canopy sprayer",
+      "category_50_rp": 48000,
+      "category_40_rp": 48000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "v) Powered Knapsack sprayer /Power Operated sprayer (capacity 8 - 12 litres)- 0.75 hp engine) __",
+      "category_50_rp": 3000,
+      "category_40_rp": 3000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vi) Powered Knapsack sprayer /Power Operated sprayer (capacity above 12- 16 litres) ( 0.75 to 1.00 hp engine",
+      "category_50_rp": 4000,
+      "category_40_rp": 4000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "vii) Powered Knapsack sprayer/ Power Operated sprayer (capacity above 16 litres ( 1.0 hp engine",
+      "category_50_rp": 10000,
+      "category_40_rp": 10000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "viii) Powered Knapsack Mist blower sprayer cum Duster ( 1.0 hp",
+      "category_50_rp": 10000,
+      "category_40_rp": 10000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "engine) (ix) Tractor Operated Sprayer (air carrier /assisted.",
+      "category_50_rp": 138000,
+      "category_40_rp": 138000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "x) Battery operated Sprayer (Boom Type",
+      "category_50_rp": 5000,
+      "category_40_rp": 5000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xi) Battery Operated Boom Sprayer (walk behind type",
+      "category_50_rp": 5000,
+      "category_40_rp": 5000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xii) Tractor Operated Sprayer boom type",
+      "category_50_rp": 41000,
+      "category_40_rp": 41000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xiti)Eco Friendly Light Trap",
+      "category_50_rp": 2000,
+      "category_40_rp": 2000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xiv) Solar insect trap (xv) Tractor Operated Electrostatic Sprayer",
+      "category_50_rp": 250000,
+      "category_40_rp": 250000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xvi) Bird Scarer",
+      "category_50_rp": 75000,
+      "category_40_rp": 75000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xvii) Self-propelled high ground clearance sprayers (Boom type",
+      "category_50_rp": 400000,
+      "category_40_rp": 400000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xviii) Tractor mounted precision spraying machines",
+      "category_50_rp": 350000,
+      "category_40_rp": 350000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "i xix) Vehicle Mounted Sprayer for locust Control",
+      "category_50_rp": 250000,
+      "category_40_rp": 250000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xx) Soil Plant Analysis Development (SPAD) Meter",
+      "category_50_rp": 8000,
+      "category_40_rp": 8000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxi) Pseudostem injector for Banana",
+      "category_50_rp": 8000,
+      "category_40_rp": 8000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    },
+    {
+      "name": "xxii) Tractor operated EPN/Bio agent applicator for sugarcane",
+      "category_50_rp": 23000,
+      "category_40_rp": 23000,
+      "priority_percentage": 50,
+      "general_percentage": 50,
+      "flagged_missing_40": false
+    }
+  ],
+  "source": "/tmp/smam2024_annexure1_ocr.txt"
+}

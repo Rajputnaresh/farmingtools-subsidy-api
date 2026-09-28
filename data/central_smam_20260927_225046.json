@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "extracted_at": "2026-09-27T22:50:46.730337",
+    "source": {
+      "scheme": "SMAM (Sub-Mission on Agricultural Mechanization) / ISAM under Krishonnati Yojana",
+      "source_doc": "SMAM Operational Guidelines 2018-19, Revised F(21.02.2019), Annexure-II(c)",
+      "source_url": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+      "source_date": "2019-02-21"
+    },
+    "record_count": 2
+  },
+  "machines": [
+    {
+      "machine_id": "smam_x_furrow_opener_xi_bund_former_xii_crust_breaker_xiii_rotopuddler_xiv_rotocultivator_xv_power_harrow",
+      "name": "x) Furrow opener (xi) Bund former (xii) Crust breaker (xiii) Rotopuddler (xiv) Rotocultivator (xv) Power Harrow",
+      "category": "Self Propelled Horticultural Machinery",
+      "equipment_group": "A. Land Development,tillage and seed bed",
+      "central": {
+        "scheme": "SMAM",
+        "source_doc": "SMAM Operational Guidelines 2018-19, Revised F(21.02.2019), Annexure-II(c)",
+        "source_url": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+        "source_date": "2019-02-21",
+        "priority": {
+          "eligible_categories": [
+            "SC",
+            "ST",
+            "Small",
+            "Marginal",
+            "Women",
+            "NE_State"
+          ],
+          "percentage": 50,
+          "max_subsidy_rp": 0
+        },
+        "general": {
+          "eligible_categories": [
+            "General",
+            "OBC"
+          ],
+          "percentage": 40,
+          "max_subsidy_rp": 0
+        }
+      },
+      "state_topups": [],
+      "data_source": "central_pdf",
+      "extracted_at": "2026-09-27T22:50:44.274105",
+      "verification_status": "official_document_confirmed"
+    },
+    {
+      "machine_id": "smam_xvi_chisel_plough",
+      "name": "xvi) Chisel Plough",
+      "category": "Self Propelled Horticultural Machinery",
+      "equipment_group": "A. Land Development,tillage and seed bed",
+      "central": {
+        "scheme": "SMAM",
+        "source_doc": "SMAM Operational Guidelines 2018-19, Revised F(21.02.2019), Annexure-II(c)",
+        "source_url": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+        "source_date": "2019-02-21",
+        "priority": {
+          "eligible_categories": [
+            "SC",
+            "ST",
+            "Small",
+            "Marginal",
+            "Women",
+            "NE_State"
+          ],
+          "percentage": 50,
+          "max_subsidy_rp": 0
+        },
+        "general": {
+          "eligible_categories": [
+            "General",
+            "OBC"
+          ],
+          "percentage": 40,
+          "max_subsidy_rp": 0
+        }
+      },
+      "state_topups": [],
+      "data_source": "central_pdf",
+      "extracted_at": "2026-09-27T22:50:44.274138",
+      "verification_status": "official_document_confirmed"
+    }
+  ]
+}

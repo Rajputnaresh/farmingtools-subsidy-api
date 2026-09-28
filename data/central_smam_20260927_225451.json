@@ -1,0 +1,338 @@
+{
+  "metadata": {
+    "extracted_at": "2026-09-27T22:54:51.052580",
+    "source": {
+      "scheme": "SMAM (Sub-Mission on Agricultural Mechanization) / ISAM under Krishonnati Yojana",
+      "source_doc": "SMAM Operational Guidelines 2018-19, Revised F(21.02.2019), Annexure-II(c)",
+      "source_url": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+      "source_date": "2019-02-21"
+    },
+    "record_count": 9
+  },
+  "machines": [
+    {
+      "machine_id": "smam_x_furrow_opener",
+      "name": "x) Furrow opener",
+      "category": "Self Propelled Horticultural Machinery",
+      "equipment_group": "A. Land Development,tillage and seed bed",
+      "central": {
+        "scheme": "SMAM",
+        "source_doc": "SMAM Operational Guidelines 2018-19, Revised F(21.02.2019), Annexure-II(c)",
+        "source_url": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+        "source_date": "2019-02-21",
+        "priority": {
+          "eligible_categories": [
+            "SC",
+            "ST",
+            "Small",
+            "Marginal",
+            "Women",
+            "NE_State"
+          ],
+          "percentage": 50,
+          "max_subsidy_rp": 40000
+        },
+        "general": {
+          "eligible_categories": [
+            "General",
+            "OBC"
+          ],
+          "percentage": 40,
+          "max_subsidy_rp": 32000
+        }
+      },
+      "state_topups": [],
+      "data_source": "central_pdf",
+      "extracted_at": "2026-09-27T22:54:48.572420",
+      "verification_status": "official_document_confirmed"
+    },
+    {
+      "machine_id": "smam_xi_bund_former",
+      "name": "(xi) Bund former",
+      "category": "Self Propelled Horticultural Machinery",
+      "equipment_group": "A. Land Development,tillage and seed bed",
+      "central": {
+        "scheme": "SMAM",
+        "source_doc": "SMAM Operational Guidelines 2018-19, Revised F(21.02.2019), Annexure-II(c)",
+        "source_url": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+        "source_date": "2019-02-21",
+        "priority": {
+          "eligible_categories": [
+            "SC",
+            "ST",
+            "Small",
+            "Marginal",
+            "Women",
+            "NE_State"
+          ],
+          "percentage": 50,
+          "max_subsidy_rp": 40000
+        },
+        "general": {
+          "eligible_categories": [
+            "General",
+            "OBC"
+          ],
+          "percentage": 40,
+          "max_subsidy_rp": 32000
+        }
+      },
+      "state_topups": [],
+      "data_source": "central_pdf",
+      "extracted_at": "2026-09-27T22:54:48.572434",
+      "verification_status": "official_document_confirmed"
+    },
+    {
+      "machine_id": "smam_xii_crust_breaker",
+      "name": "(xii) Crust breaker",
+      "category": "Self Propelled Horticultural Machinery",
+      "equipment_group": "A. Land Development,tillage and seed bed",
+      "central": {
+        "scheme": "SMAM",
+        "source_doc": "SMAM Operational Guidelines 2018-19, Revised F(21.02.2019), Annexure-II(c)",
+        "source_url": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+        "source_date": "2019-02-21",
+        "priority": {
+          "eligible_categories": [
+            "SC",
+            "ST",
+            "Small",
+            "Marginal",
+            "Women",
+            "NE_State"
+          ],
+          "percentage": 50,
+          "max_subsidy_rp": 40000
+        },
+        "general": {
+          "eligible_categories": [
+            "General",
+            "OBC"
+          ],
+          "percentage": 40,
+          "max_subsidy_rp": 32000
+        }
+      },
+      "state_topups": [],
+      "data_source": "central_pdf",
+      "extracted_at": "2026-09-27T22:54:48.572438",
+      "verification_status": "official_document_confirmed"
+    },
+    {
+      "machine_id": "smam_xiii_rotopuddler",
+      "name": "(xiii) Rotopuddler",
+      "category": "Self Propelled Horticultural Machinery",
+      "equipment_group": "A. Land Development,tillage and seed bed",
+      "central": {
+        "scheme": "SMAM",
+        "source_doc": "SMAM Operational Guidelines 2018-19, Revised F(21.02.2019), Annexure-II(c)",
+        "source_url": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+        "source_date": "2019-02-21",
+        "priority": {
+          "eligible_categories": [
+            "SC",
+            "ST",
+            "Small",
+            "Marginal",
+            "Women",
+            "NE_State"
+          ],
+          "percentage": 50,
+          "max_subsidy_rp": 40000
+        },
+        "general": {
+          "eligible_categories": [
+            "General",
+            "OBC"
+          ],
+          "percentage": 40,
+          "max_subsidy_rp": 32000
+        }
+      },
+      "state_topups": [],
+      "data_source": "central_pdf",
+      "extracted_at": "2026-09-27T22:54:48.572441",
+      "verification_status": "official_document_confirmed"
+    },
+    {
+      "machine_id": "smam_xiv_rotocultivator",
+      "name": "(xiv) Rotocultivator",
+      "category": "Self Propelled Horticultural Machinery",
+      "equipment_group": "A. Land Development,tillage and seed bed",
+      "central": {
+        "scheme": "SMAM",
+        "source_doc": "SMAM Operational Guidelines 2018-19, Revised F(21.02.2019), Annexure-II(c)",
+        "source_url": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+        "source_date": "2019-02-21",
+        "priority": {
+          "eligible_categories": [
+            "SC",
+            "ST",
+            "Small",
+            "Marginal",
+            "Women",
+            "NE_State"
+          ],
+          "percentage": 50,
+          "max_subsidy_rp": 40000
+        },
+        "general": {
+          "eligible_categories": [
+            "General",
+            "OBC"
+          ],
+          "percentage": 40,
+          "max_subsidy_rp": 32000
+        }
+      },
+      "state_topups": [],
+      "data_source": "central_pdf",
+      "extracted_at": "2026-09-27T22:54:48.572444",
+      "verification_status": "official_document_confirmed"
+    },
+    {
+      "machine_id": "smam_xv",
+      "name": "(xv)",
+      "category": "Self Propelled Horticultural Machinery",
+      "equipment_group": "A. Land Development,tillage and seed bed",
+      "central": {
+        "scheme": "SMAM",
+        "source_doc": "SMAM Operational Guidelines 2018-19, Revised F(21.02.2019), Annexure-II(c)",
+        "source_url": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+        "source_date": "2019-02-21",
+        "priority": {
+          "eligible_categories": [
+            "SC",
+            "ST",
+            "Small",
+            "Marginal",
+            "Women",
+            "NE_State"
+          ],
+          "percentage": 50,
+          "max_subsidy_rp": 40000
+        },
+        "general": {
+          "eligible_categories": [
+            "General",
+            "OBC"
+          ],
+          "percentage": 40,
+          "max_subsidy_rp": 32000
+        }
+      },
+      "state_topups": [],
+      "data_source": "central_pdf",
+      "extracted_at": "2026-09-27T22:54:48.572447",
+      "verification_status": "official_document_confirmed"
+    },
+    {
+      "machine_id": "smam_power_harrow",
+      "name": "Power Harrow",
+      "category": "Self Propelled Horticultural Machinery",
+      "equipment_group": "A. Land Development,tillage and seed bed",
+      "central": {
+        "scheme": "SMAM",
+        "source_doc": "SMAM Operational Guidelines 2018-19, Revised F(21.02.2019), Annexure-II(c)",
+        "source_url": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+        "source_date": "2019-02-21",
+        "priority": {
+          "eligible_categories": [
+            "SC",
+            "ST",
+            "Small",
+            "Marginal",
+            "Women",
+            "NE_State"
+          ],
+          "percentage": 50,
+          "max_subsidy_rp": 40000
+        },
+        "general": {
+          "eligible_categories": [
+            "General",
+            "OBC"
+          ],
+          "percentage": 40,
+          "max_subsidy_rp": 32000
+        }
+      },
+      "state_topups": [],
+      "data_source": "central_pdf",
+      "extracted_at": "2026-09-27T22:54:48.572449",
+      "verification_status": "official_document_confirmed"
+    },
+    {
+      "machine_id": "smam_xvi",
+      "name": "xvi)",
+      "category": "Self Propelled Horticultural Machinery",
+      "equipment_group": "A. Land Development,tillage and seed bed",
+      "central": {
+        "scheme": "SMAM",
+        "source_doc": "SMAM Operational Guidelines 2018-19, Revised F(21.02.2019), Annexure-II(c)",
+        "source_url": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+        "source_date": "2019-02-21",
+        "priority": {
+          "eligible_categories": [
+            "SC",
+            "ST",
+            "Small",
+            "Marginal",
+            "Women",
+            "NE_State"
+          ],
+          "percentage": 50,
+          "max_subsidy_rp": 10000
+        },
+        "general": {
+          "eligible_categories": [
+            "General",
+            "OBC"
+          ],
+          "percentage": 40,
+          "max_subsidy_rp": 8000
+        }
+      },
+      "state_topups": [],
+      "data_source": "central_pdf",
+      "extracted_at": "2026-09-27T22:54:48.572474",
+      "verification_status": "official_document_confirmed"
+    },
+    {
+      "machine_id": "smam_chisel_plough",
+      "name": "Chisel Plough",
+      "category": "Self Propelled Horticultural Machinery",
+      "equipment_group": "A. Land Development,tillage and seed bed",
+      "central": {
+        "scheme": "SMAM",
+        "source_doc": "SMAM Operational Guidelines 2018-19, Revised F(21.02.2019), Annexure-II(c)",
+        "source_url": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+        "source_date": "2019-02-21",
+        "priority": {
+          "eligible_categories": [
+            "SC",
+            "ST",
+            "Small",
+            "Marginal",
+            "Women",
+            "NE_State"
+          ],
+          "percentage": 50,
+          "max_subsidy_rp": 10000
+        },
+        "general": {
+          "eligible_categories": [
+            "General",
+            "OBC"
+          ],
+          "percentage": 40,
+          "max_subsidy_rp": 8000
+        }
+      },
+      "state_topups": [],
+      "data_source": "central_pdf",
+      "extracted_at": "2026-09-27T22:54:48.572477",
+      "verification_status": "official_document_confirmed"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{% comment %}
+  Shopify Section: Multi-Scheme Government Subsidy Calculator
+  File: sections/subsidy-calculator.liquid
+  Version: 3.0
+  Description: Drop-in calculator widget for farmingtools.in — displays verified
+               SMAM 2024 + CRM + CHC + FMB + Namo Drone Didi rates with
+               state portal links and document checklists.
+  Settings: 1 setting (enable/disable toggle)
+{% endcomment %}
+
+{% assign calc_enabled = section.settings.enable_calculator | default: true %}
+
+{% if calc_enabled %}
+<div class="ft-calc-section">
+  {% comment %}
+    The widget HTML is embedded inline. In production, the full
+    subsidy_widget.html content is placed here. For the MVP,
+    we load it from the project data directory via a CDN or
+    inline the minified version.
+  {% endcomment %}
+
+  <!-- Widget container -->
+  <div id="farmingtools-subsidy-calculator">
+    <noscript>
+      <div class="ft-no-js">
+        <p>JavaScript is required for the Subsidy Calculator.</p>
+        <p>Alternatively, visit the <a href="https://agrimachinery.nic.in/index/assistanceCalculator" target="_blank" rel="noopener">Official Government Calculator</a>.</p>
+      </div>
+    </noscript>
+
+    <!-- The full widget HTML is injected here at runtime via Shopify theme app block or section include -->
+    {% if section.settings.load_inline %}
+    <div class="ft-widget-placeholder" style="padding:40px;text-align:center;background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;">
+      <p style="color:#64748b;margin:0;">Loading Subsidy Calculator...</p>
+      <p style="color:#94a3b8;font-size:11px;margin-top:8px;">If the calculator does not appear, visit
+        <a href="https://agrimachinery.nic.in/index/assistanceCalculator" target="_blank" rel="noopener" style="color:#1b4d3e;">agrimachinery.nic.in</a>
+      </p>
+    </div>
+    {% endif %}
+  </div>
+
+  {% comment %}
+    ============================================================
+    IN PRODUCTION: Replace the placeholder above with the full
+    subsidy_widget.html content. Two deployment options:
+
+    OPTION A — Inline embed (recommended for farmingtools.in):
+    Copy the entire contents of subsidy_widget.html (the <div id="farmingtools-subsidy-calculator">...</div>
+    block including the <style> and <script> sections) and paste it
+    inside the <div class="ft-calc-section"> above, replacing the
+    ft-widget-placeholder div.
+
+    OPTION B — External asset:
+    Upload subsidy_widget.html to Shopify Files (Settings → Files)
+    and reference it via:
+
+      {% assign widget_url = 'shopsystem/files/subsidy_widget.html' %}
+      <script src="{{ widget_url }}"></script>
+
+    The widget auto-initializes on DOM ready and calls the API at
+    /api/subsidy/calculate (or the configured FT_SUBSIDY_API_URL).
+    ============================================================
+    {% endcomment %}
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Krishi Yantra Subsidy Calculator",
+  "tag": "section",
+  "class": "ft-calc-section-wrap",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_calculator",
+      "label": "Enable Subsidy Calculator widget",
+      "default": true,
+      "info": "Shows the government subsidy calculator with SMAM 2024, CRM, CHC, FMB, and Namo Drone Didi rates. Verified against agrimachinery.nic.in guidelines."
+    },
+    {
+      "type": "checkbox",
+      "id": "load_inline",
+      "label": "Load widget inline (vs external file)",
+      "default": false,
+      "info": "When enabled, the full widget HTML is embedded inline. Disable to load from a Shopify Files URL instead."
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Subsidy Calculator",
+      "settings": {
+        "enable_calculator": true,
+        "load_inline": false
+      }
+    }
+  ]
+}
+{% endschema %}
