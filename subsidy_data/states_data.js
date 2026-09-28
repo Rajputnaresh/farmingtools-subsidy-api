@@ -1,7 +1,7 @@
 // State Registry (37 States and Union Territories)
 // Source: data/registration_info.json
-// Generated: 2026-09-28T11:13:47.159253
-const STATES = [
+// Generated: 2026-09-28T11:38:24.501774
+var STATES = [
   {
     "code": "1",
     "name": "Jammu & Kashmir",

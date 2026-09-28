@@ -1,7 +1,7 @@
 // Scheme-specific documents and process steps
 // Source: data/registration_info.json
-// Generated: 2026-09-28T11:13:47.159683
-const SCHEME_DOCS = {
+// Generated: 2026-09-28T11:38:24.502759
+var SCHEME_DOCS = {
   "SMAM": {
     "full_name": "Sub-Mission on Agricultural Mechanization (SMAM 2024)",
     "target_group": "Individual farmers, Women farmers, SC/ST, Small & Marginal farmers",
@@ -236,7 +236,7 @@ const SCHEME_DOCS = {
   }
 };
 
-const CENTRAL_PORTLINKS = {
+var CENTRAL_PORTLINKS = {
   "dbt_portal": "https://agrimachinery.nic.in/Farmer/Management/Index",
   "calculator": "https://agrimachinery.nic.in/index/assistanceCalculator",
   "tracking": "https://agrimachinery.nic.in/index/tracking",

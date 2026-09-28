@@ -1,7 +1,7 @@
 // Full verified machinery database (175 machines)
 // Source: agrimachinery.nic.in SMAM 2024 Guidelines Annexure-II(c)
-// Generated: 2026-09-28T11:13:47.164358
-const FULL_DB = {
+// Generated: 2026-09-28T11:38:24.507332
+var FULL_DB = {
   "smam_i_tractor_2wd_08-20": {
     "name": "Tractor 2WD (up to 20 PTO HP)",
     "cat": "Tractors",

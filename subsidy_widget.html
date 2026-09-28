@@ -153,8 +153,11 @@
       <a id="ft-pdf-link" href="https://agrimachinery.nic.in/Files/Guidelines/Guidelines_SMAM2024.pdf" target="_blank" rel="noopener" class="ft-pdf-badge">Official PDF ↗</a>
     </div>
 
-    <!-- Action Buttons: WhatsApp Share, Print PDF, Copy Estimate -->
+    <!-- Action Buttons: WhatsApp Share, Dealer Inquiry, Print PDF, Copy Estimate -->
     <div class="ft-result-actions">
+      <button type="button" class="ft-action-btn ft-btn-dealer" onclick="contactDealerWhatsApp()">
+        <span>💬</span> <span data-en="Get Dealer Quote (WhatsApp)" data-hi="डीलर कोटेशन प्राप्त करें (व्हाट्सएप)">Get Dealer Quote (WhatsApp)</span>
+      </button>
       <button type="button" class="ft-action-btn ft-btn-whatsapp" onclick="shareWhatsApp()">
         <span>📱</span> <span data-en="Share on WhatsApp" data-hi="व्हाट्सएप पर शेयर करें">Share on WhatsApp</span>
       </button>
@@ -551,6 +554,8 @@
     transition: transform 0.1s, opacity 0.2s, background 0.2s;
   }
   .ft-action-btn:active { transform: scale(0.98); }
+  .ft-btn-dealer { background: #1b4d3e; color: #ffffff !important; }
+  .ft-btn-dealer:hover { background: #14382d; }
   .ft-btn-whatsapp { background: #25d366; color: #ffffff !important; text-decoration: none; }
   .ft-btn-whatsapp:hover { background: #1ebc59; }
   .ft-btn-print { background: #0f172a; color: #ffffff; }
@@ -587,13 +592,31 @@
     return m[code] || code;
   }
 
+  function getDB() {
+    if (typeof window !== "undefined" && window.FULL_DB) return window.FULL_DB;
+    if (typeof FULL_DB !== "undefined") return FULL_DB;
+    return {};
+  }
+
+  function getStates() {
+    if (typeof window !== "undefined" && window.STATES) return window.STATES;
+    if (typeof STATES !== "undefined") return STATES;
+    return [];
+  }
+
+  function getSchemeDocs() {
+    if (typeof window !== "undefined" && window.SCHEME_DOCS) return window.SCHEME_DOCS;
+    if (typeof SCHEME_DOCS !== "undefined") return SCHEME_DOCS;
+    return {};
+  }
+
   function normalizeStateKey(str) {
     if (!str) return "";
     return String(str).toUpperCase().replace(/\s+&\s+/g, '_').replace(/[\s\-().]/g, '_').replace(/__+/g, '_');
   }
 
   function stateCodeToName(code) {
-    for (const s of (window.STATES || STATES || [])) {
+    for (const s of getStates()) {
       if (String(s.code) === String(code)) return s.name;
     }
     return null;
@@ -609,7 +632,7 @@
     const sel = document.getElementById("ft-state");
     if (!sel) return;
     sel.innerHTML = '<option value="">— Central Subsidy (All India) —</option>';
-    STATES.forEach(st => {
+    getStates().forEach(st => {
       const o = document.createElement("option");
       o.value = st.code;
       o.textContent = st.name;
@@ -623,7 +646,7 @@
     const currentVal = sel.value;
     sel.innerHTML = "";
     const g = {};
-    const db = window.FULL_DB || FULL_DB || {};
+    const db = getDB();
     const sq = (searchQuery || "").trim().toLowerCase();
     let count = 0;
 
@@ -672,7 +695,7 @@
 
   window.onMachineChange = function() {
     const mid = document.getElementById("ft-machine").value;
-    const db = window.FULL_DB || FULL_DB || {};
+    const db = getDB();
     const m = db[mid];
     if (m && m.pCap) {
       document.getElementById("ft-price").value = Math.round(m.pCap / (m.gPct || 0.4) / 1000) * 1000;
@@ -696,7 +719,7 @@
 
   window.shareWhatsApp = function() {
     const mid = document.getElementById("ft-machine").value;
-    const db = window.FULL_DB || FULL_DB || {};
+    const db = getDB();
     const m = db[mid];
     const mName = m ? m.name : "Agricultural Machine";
     const totalVal = document.getElementById("ft-res-total-val")?.textContent || "₹0";
@@ -716,9 +739,34 @@
     window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(text), "_blank");
   };
 
+  window.contactDealerWhatsApp = function() {
+    const mid = document.getElementById("ft-machine").value;
+    const db = getDB();
+    const m = db[mid];
+    const mName = m ? m.name : "Agricultural Machine";
+    const totalVal = document.getElementById("ft-res-total-val")?.textContent || "₹0";
+    const farmerVal = document.getElementById("ft-res-farmer-val")?.textContent || "₹0";
+    const priceVal = document.getElementById("ft-price")?.value || "0";
+    const schemeBadge = document.getElementById("ft-res-scheme-badge")?.textContent || "SMAM 2024";
+    const stateEl = document.getElementById("ft-state");
+    const stateName = stateEl && stateEl.selectedIndex > 0 ? stateEl.options[stateEl.selectedIndex].text : "All India";
+
+    const text = `🌾 *Namaste! Subsidy & Equipment Inquiry (FarmingTools.in)*\n\n` +
+      `🚜 *Machine:* ${mName}\n` +
+      `📍 *State:* ${stateName}\n` +
+      `📜 *Scheme:* ${schemeBadge}\n` +
+      `💰 *Estimated Price:* ₹${Number(priceVal).toLocaleString("en-IN")}\n` +
+      `✅ *Estimated Govt Subsidy:* ${totalVal}\n` +
+      `👤 *Farmer Net Share:* ${farmerVal}\n\n` +
+      `Please provide empanelled dealer quotation, current delivery timeline, and DBT portal filing assistance.`;
+
+    const phone = window.FT_DEALER_WHATSAPP || "916006078815";
+    window.open("https://api.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(text), "_blank");
+  };
+
   window.copyBreakdown = function() {
     const mid = document.getElementById("ft-machine").value;
-    const db = window.FULL_DB || FULL_DB || {};
+    const db = getDB();
     const m = db[mid];
     const mName = m ? m.name : "Agricultural Machine";
     const centralVal = document.getElementById("ft-res-central-val")?.textContent || "₹0";
@@ -765,7 +813,7 @@
     if (price > 100000000) { showError("Price seems unusually high. Please verify the dealer sale price."); priceEl.style.borderColor = "#f59e0b"; return; }
     priceEl.style.borderColor = "";
 
-    const db = window.FULL_DB || FULL_DB || {};
+    const db = getDB();
     const m = db[mid];
     if (!m) { showError("Machine data not found. Please select a different machine."); return; }
 

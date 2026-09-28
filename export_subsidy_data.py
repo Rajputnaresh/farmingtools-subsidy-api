@@ -45,7 +45,7 @@ def export_states():
     content = f"// State Registry ({len(clean_states)} States and Union Territories)\n"
     content += f"// Source: data/registration_info.json\n"
     content += f"// Generated: {datetime.now().isoformat()}\n"
-    content += "const STATES = " + json.dumps(clean_states, indent=2, ensure_ascii=False) + ";\n\n"
+    content += "var STATES = " + json.dumps(clean_states, indent=2, ensure_ascii=False) + ";\n\n"
     content += "if (typeof window !== 'undefined') { window.STATES = STATES; }\n"
     content += "if (typeof module !== 'undefined' && module.exports) { module.exports = { STATES }; }\n"
 
@@ -67,8 +67,8 @@ def export_schemes():
     content = "// Scheme-specific documents and process steps\n"
     content += "// Source: data/registration_info.json\n"
     content += f"// Generated: {datetime.now().isoformat()}\n"
-    content += "const SCHEME_DOCS = " + json.dumps(schemes, indent=2, ensure_ascii=False) + ";\n\n"
-    content += "const CENTRAL_PORTLINKS = " + json.dumps(portals, indent=2, ensure_ascii=False) + ";\n\n"
+    content += "var SCHEME_DOCS = " + json.dumps(schemes, indent=2, ensure_ascii=False) + ";\n\n"
+    content += "var CENTRAL_PORTLINKS = " + json.dumps(portals, indent=2, ensure_ascii=False) + ";\n\n"
     content += "if (typeof window !== 'undefined') { window.SCHEME_DOCS = SCHEME_DOCS; window.CENTRAL_PORTLINKS = CENTRAL_PORTLINKS; }\n"
     content += "if (typeof module !== 'undefined' && module.exports) { module.exports = { SCHEME_DOCS, CENTRAL_PORTLINKS }; }\n"
 
@@ -120,7 +120,7 @@ def export_full_db():
     content = f"// Full verified machinery database ({len(db)} machines)\n"
     content += f"// Source: agrimachinery.nic.in SMAM 2024 Guidelines Annexure-II(c)\n"
     content += f"// Generated: {datetime.now().isoformat()}\n"
-    content += "const FULL_DB = " + json.dumps(db, indent=2, ensure_ascii=False) + ";\n\n"
+    content += "var FULL_DB = " + json.dumps(db, indent=2, ensure_ascii=False) + ";\n\n"
     content += "if (typeof window !== 'undefined') { window.FULL_DB = FULL_DB; }\n"
     content += "if (typeof module !== 'undefined' && module.exports) { module.exports = { FULL_DB }; }\n"
 
