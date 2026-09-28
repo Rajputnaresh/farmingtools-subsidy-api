@@ -5112,6 +5112,26 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = { FULL_D
     populateStateDropdown();
     populateMachineDropdown("ALL");
     runCalculation();
+    syncWithCDN();
+  }
+
+  function syncWithCDN() {
+    var cdnUrl = window.FT_SUBSIDY_CDN_URL || "https://rajputnaresh.github.io/farmingtools-subsidy-api/data/subsidy_master_latest.json";
+    fetch(cdnUrl)
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(data) {
+        if (data && typeof data === "object") {
+          window.FULL_DB = Object.assign(window.FULL_DB || {}, data);
+          var curScheme = document.getElementById("ft-scheme") ? document.getElementById("ft-scheme").value : "ALL";
+          var curVal = document.getElementById("ft-machine") ? document.getElementById("ft-machine").value : "";
+          populateMachineDropdown(curScheme);
+          if (curVal) {
+            var sel = document.getElementById("ft-machine");
+            if (sel) sel.value = curVal;
+          }
+        }
+      })
+      .catch(function() {});
   }
 
   function populateStateDropdown() {
