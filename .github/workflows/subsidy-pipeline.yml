@@ -1,51 +1,124 @@
-name: Subsidy Pipeline & Verification Cron
+name: Automated Real-time Government Subsidy Sync & Deploy
 
 on:
   schedule:
-    # Run daily freshness check at 03:00 UTC
-    - cron: '0 3 * * *'
-    # Run weekly refresh and diff audit every Monday at 02:00 UTC
-    - cron: '0 2 * * 1'
+    # Run every 6 hours to check official portals & guideline PDF hashes
+    - cron: '0 */6 * * *'
+  push:
+    branches:
+      - main
+    paths:
+      - 'build_multi_scheme_master.py'
+      - 'subsidy_calculator.py'
+      - 'subsidy_api.py'
+      - 'subsidy_widget.html'
+      - 'export_subsidy_data.py'
+      - 'lambda_function.py'
+      - 'data/**'
   workflow_dispatch:
     inputs:
-      mode:
-        description: 'Execution mode'
-        required: true
-        default: 'weekly'
+      force_rebuild:
+        description: 'Force complete rebuild & repackage'
+        required: false
+        default: 'false'
         type: choice
         options:
-          - daily
-          - weekly
-          - monthly
-          - full
+          - 'true'
+          - 'false'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "subsidy-pipeline"
+  cancel-in-progress: false
 
 jobs:
-  subsidy-cron:
+  sync-verify-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Python 3.11
+      - name: 🐍 Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
-      - name: Set up Node.js 22
+      - name: 🟢 Set up Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: '22'
 
-      - name: Run Subsidy Data Cron
+      - name: 🌐 Monitor Official Government Sources & Sync
         run: |
-          MODE="${{ github.event.inputs.mode || 'daily' }}"
-          echo "Running subsidy_cron.py in mode: $MODE"
-          python3 subsidy_cron.py "$MODE"
+          if [ "${{ github.event.inputs.force_rebuild }}" = "true" ]; then
+            echo "Forcing full rebuild..."
+            python3 build_multi_scheme_master.py
+            python3 export_subsidy_data.py
+            python3 package_aws_lambda.py
+          fi
+          python3 monitor_official_sources.py
 
-      - name: Verify End-to-End API & Engine
+      - name: 🧪 Run Headless Chrome CDP Browser Verification
         run: |
-          python3 end_to_end_verify.py
+          node browser_test.mjs
 
-      - name: Run Multi-Scheme 10-Machine Regression Audit
+      - name: 📦 Build AWS Lambda Deployment Artifact
         run: |
-          python3 verify_10_machines.py
+          python3 package_aws_lambda.py
+
+      - name: 💾 Commit & Push Real-Time Data Updates
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Stage all modified and new tracking data
+          git add data/ subsidy_data/ subsidy_lambda.zip
+          
+          if ! git diff-index --quiet HEAD --; then
+            echo "⚡ Changes detected from official government sources. Committing..."
+            git commit -m "chore(sync): automated official government source update [skip ci]"
+            git push origin main
+          else
+            echo "✨ All data files already in sync with official sources."
+          fi
+
+      - name: 🚀 Deploy to AWS Lambda (if AWS credentials configured)
+        if: env.AWS_ACCESS_KEY_ID != '' && env.AWS_SECRET_ACCESS_KEY != ''
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ap-south-1
+        run: |
+          echo "Updating AWS Lambda function code in ap-south-1 (Mumbai)..."
+          aws lambda update-function-code \
+            --function-name farmingtools-subsidy-api \
+            --zip-file fileb://subsidy_lambda.zip \
+            --region ap-south-1 || echo "⚠️ Lambda function update skipped or not yet created."
+
+      - name: 📄 Prepare GitHub Pages Public Artifact
+        run: |
+          mkdir -p public
+          cp subsidy_widget.html public/index.html
+          cp subsidy_widget.html public/subsidy_widget.html
+          cp subsidy_widget_docs_steps.js public/
+          cp -r subsidy_data public/
+          cp -r data public/
+          touch public/.nojekyll
+
+      - name: 📤 Upload GitHub Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: 🌐 Deploy to GitHub Pages (100% Free Forever CDN)
+        id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true

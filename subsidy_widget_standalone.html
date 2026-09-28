@@ -1,3 +1,1064 @@
+<!-- ========================================================================= -->
+<!-- Multi-Scheme Government Subsidy Calculator for farmingtools.in            -->
+<!-- Schemes: SMAM 2024 + CRM + CHC + FMB + Namo Drone Didi + State Top-ups   -->
+<!-- Drop-in compatible with Shopify Liquid Section, Theme App Block, or HTML  -->
+<!-- ========================================================================= -->
+
+<div id="farmingtools-subsidy-calculator" class="ft-calc-container">
+  <div class="ft-calc-header">
+    <div class="ft-header-text">
+      <span class="ft-badge" data-en="GOVERNMENT SUBSIDY VERIFIED 2024-25" data-hi="सरकारी सब्सिडी सत्यापित 2024-25">GOVERNMENT SUBSIDY VERIFIED 2024-25</span>
+      <h2 class="ft-title" data-en="Krishi Yantra Subsidy Calculator" data-hi="कृषि यंत्र सब्सिडी कैलकुलेटर">Krishi Yantra Subsidy Calculator</h2>
+      <p class="ft-subtitle" data-en="Official Cost Norms & Subsidies: SMAM 2024, CRM (Crop Residue), Custom Hiring Centres (CHC), Farm Machinery Banks (FMB), and Namo Drone Didi." data-hi="आधिकारिक लागत मानक और अनुदान: स्माम (SMAM 2024), फसल अवशेष प्रबंधन (CRM), कस्टम हायरिंग सेंटर (CHC), फार्म मशीनरी बैंक (FMB), और नमो ड्रोन दीदी।">
+        Official Cost Norms & Subsidies: <b>SMAM 2024</b>, <b>CRM (Crop Residue)</b>, <b>Custom Hiring Centres (CHC)</b>, <b>Farm Machinery Banks (FMB)</b>, and <b>Namo Drone Didi</b>.
+        <span style="display:block;margin-top:4px;color:#94a3b8;font-size:11px;" data-en="175 verified machines across 6 government schemes · Source: agrimachinery.nic.in" data-hi="6 सरकारी योजनाओं में 175 सत्यापित मशीनें · स्रोत: agrimachinery.nic.in">175 verified machines across 6 government schemes · Source: agrimachinery.nic.in</span>
+      </p>
+    </div>
+    <div class="ft-header-links">
+      <button type="button" id="ft-lang-btn" onclick="toggleLanguage()" style="background:#f1f5f9;border:1px solid #cbd5e1;padding:5px 10px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;color:#1b4d3e;margin-bottom:6px;">
+        🌐 <span id="ft-lang-label">हिंदी में देखें</span>
+      </button>
+      <a href="https://agrimachinery.nic.in/Farmer/Management/Index" target="_blank" rel="noopener" class="ft-btn-link" data-en="Official DBT Portal ↗" data-hi="आधिकारिक डीबीटी पोर्टल ↗">Official DBT Portal ↗</a>
+      <a href="https://agrimachinery.nic.in/index/tracking" target="_blank" rel="noopener" class="ft-btn-link-subtle" data-en="Track Status ↗" data-hi="आवेदन स्थिति देखें ↗">Track Status ↗</a>
+    </div>
+  </div>
+
+  <div class="ft-calc-body">
+    <!-- Scheme Filter -->
+    <div class="ft-form-row">
+      <label class="ft-label" for="ft-scheme" data-en="Scheme Filter" data-hi="योजना फ़िल्टर">Scheme Filter</label>
+      <select id="ft-scheme" class="ft-select" onchange="onSchemeChange()">
+        <option value="ALL">All Government Schemes (175 Machines)</option>
+        <option value="SMAM" selected>SMAM 2024 — Individual Machinery Subsidy (Tractor, Tiller, Transplanter, Harvester)</option>
+        <option value="CRM">CRM — Crop Residue Management (Super Seeder, Baler, Happy Seeder, Mulcher)</option>
+        <option value="NAMO_DRONE_DIDI">Namo Drone Didi & Kisan Drone (Women SHGs, FPOs & Individual Farmers)</option>
+        <option value="CHC">Custom Hiring Centre (CHC) — Projects up to ₹250 Lakhs (40%–80% Subsidy)</option>
+        <option value="FMB">Farm Machinery Bank (FMB) — Village Level Projects (80%–95% Subsidy)</option>
+      </select>
+    </div>
+
+    <!-- Machine Selector -->
+    <div class="ft-form-row">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+        <label class="ft-label" for="ft-machine" style="margin-bottom:0;" data-en="Select Agricultural Machine / Equipment Package" data-hi="कृषि यंत्र / उपकरण पैकेज चुनें">Select Agricultural Machine / Equipment Package</label>
+        <span id="ft-machine-count-badge" style="font-size:11px;color:#64748b;font-weight:600;">175 available</span>
+      </div>
+      <div style="margin-bottom:8px;">
+        <input id="ft-machine-search" type="text" class="ft-input" placeholder="🔍 Quick search (e.g. Tractor, Super Seeder, Rotavator, Drone...)" oninput="onSearchChange()" style="font-size:12px;padding:7px 10px;">
+      </div>
+      <select id="ft-machine" class="ft-select" onchange="onMachineChange()">
+        <!-- Populated dynamically via JS with optgroups -->
+      </select>
+    </div>
+
+    <!-- 3-Column Inputs: Category, State, Price -->
+    <div class="ft-grid-3">
+      <div class="ft-form-group">
+        <label class="ft-label" for="ft-category" data-en="Farmer / Beneficiary Category" data-hi="किसान / लाभार्थी श्रेणी">Farmer / Beneficiary Category</label>
+        <select id="ft-category" class="ft-select" onchange="runCalculation()">
+          <option value="SC">SC / ST / Small & Marginal / Women / NE States → 50% Priority</option>
+          <option value="General" selected>General / OBC Farmer → 40% Standard</option>
+          <option value="FRA">Forest Rights Act (FRA) Patta Holder → 90% Tribal Special</option>
+          <option value="SHG">Women Self Help Group (DAY-NRLM) → 80% (Namo Drone / FMB)</option>
+          <option value="FPO">Farmer Producer Organization (FPO) → 75%–80% Grant</option>
+          <option value="Cooperative">Cooperative Society / Panchayat → 80% (FMB / CRM CHC)</option>
+          <option value="Rural_Youth">Rural Youth / Entrepreneur → 40% (CHC Hubs)</option>
+        </select>
+      </div>
+
+      <div class="ft-form-group">
+        <label class="ft-label" for="ft-state" data-en="State / UT (for State Top-Up)" data-hi="राज्य / केंद्र शासित प्रदेश">State / UT (for State Top-Up)</label>
+        <select id="ft-state" class="ft-select" onchange="runCalculation()">
+          <option value="">— Central Subsidy (All India) —</option>
+          <!-- 37 Indian States/UTs populated dynamically -->
+        </select>
+      </div>
+
+      <div class="ft-form-group">
+        <label class="ft-label" for="ft-price" data-en="Dealer Sale Price (₹)" data-hi="डीलर बिक्री मूल्य (₹)">Dealer Sale Price (₹)</label>
+        <input id="ft-price" type="number" class="ft-input" value="600000" min="1000" step="1000" oninput="runCalculation()">
+      </div>
+    </div>
+
+    <!-- Advanced Options Toggle -->
+    <details class="ft-advanced-drawer" style="margin-bottom:14px;font-size:12px;">
+      <summary style="cursor:pointer;color:#1b4d3e;font-weight:600;user-select:none;padding:2px 0;">
+        ⚙️ <span data-en="Advanced Options: Quantity Units & 12% GST Treatment" data-hi="उन्नत विकल्प: मात्रा और 12% जीएसटी">Advanced Options: Quantity Units & 12% GST Treatment</span>
+      </summary>
+      <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:12px;margin-top:8px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div>
+            <label class="ft-label" for="ft-units" style="font-size:12px;" data-en="Quantity / Units" data-hi="उपकरणों की संख्या">Quantity / Units</label>
+            <input id="ft-units" type="number" class="ft-input" value="1" min="1" max="100" style="padding:6px 10px;font-size:12px;" oninput="runCalculation()">
+          </div>
+          <div>
+            <label class="ft-label" style="font-size:12px;" data-en="GST Treatment (12% Agri GST)" data-hi="जीएसटी दर (12% कृषि यंत्र)">GST Treatment (12% Agri GST)</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:12px;margin-top:6px;cursor:pointer;">
+              <input id="ft-gst-inclusive" type="checkbox" onchange="runCalculation()">
+              <span data-en="Entered price includes 12% GST" data-hi="दर्ज मूल्य में 12% जीएसटी शामिल है">Entered price includes 12% GST</span>
+            </label>
+          </div>
+        </div>
+        <div id="ft-gst-breakdown" style="display:none;margin-top:8px;padding-top:8px;border-top:1px dashed #cbd5e1;color:#475569;font-size:11px;">
+          Base Machine Cost: <b id="ft-gst-base">₹0</b> + 12% GST: <b id="ft-gst-tax">₹0</b> = Total Invoice: <b id="ft-gst-total">₹0</b>
+        </div>
+      </div>
+    </details>
+
+    <button type="button" class="ft-calc-btn" onclick="runCalculation()" data-en="Calculate Verified Subsidy" data-hi="सब्सिडी की गणना करें">Calculate Verified Subsidy</button>
+  </div>
+
+  <!-- Subsidy Results Breakdown Card -->
+  <div id="ft-result-card" class="ft-result-card" style="display:none;">
+    <div class="ft-result-header">
+      <h3 id="ft-res-machine-title" class="ft-res-title">Subsidy Calculation Result</h3>
+      <span id="ft-res-scheme-badge" class="ft-scheme-pill">SMAM 2024</span>
+    </div>
+
+    <div class="ft-result-metrics">
+      <div class="ft-metric-box ft-metric-central">
+        <div class="ft-metric-label">Central Govt Subsidy</div>
+        <div id="ft-res-central-val" class="ft-metric-val">₹0</div>
+        <div id="ft-res-central-sub" class="ft-metric-sub">50% capped at ₹3,00,000</div>
+      </div>
+
+      <div class="ft-metric-box ft-metric-state">
+        <div class="ft-metric-label">State Top-Up</div>
+        <div id="ft-res-state-val" class="ft-metric-val">₹0</div>
+        <div id="ft-res-state-sub" class="ft-metric-sub">Select state for top-up</div>
+      </div>
+
+      <div class="ft-metric-box ft-metric-total">
+        <div class="ft-metric-label">Total Govt Assistance</div>
+        <div id="ft-res-total-val" class="ft-metric-val ft-text-success">₹0</div>
+        <div id="ft-res-total-sub" class="ft-metric-sub">Direct Benefit Transfer (DBT)</div>
+      </div>
+
+      <div class="ft-metric-box ft-metric-farmer">
+        <div class="ft-metric-label">Farmer's Net Share</div>
+        <div id="ft-res-farmer-val" class="ft-metric-val ft-text-primary">₹0</div>
+        <div id="ft-res-farmer-sub" class="ft-metric-sub">Payable to empanelled dealer</div>
+      </div>
+    </div>
+
+    <!-- Official Citation & Source Alert -->
+    <div class="ft-citation-banner">
+      <div class="ft-citation-icon">📜</div>
+      <div class="ft-citation-content">
+        <div id="ft-res-source" class="ft-citation-text">
+          <b>Official Citation:</b> SMAM Operational Guidelines 2024 (Annexure-I) — agrimachinery.nic.in
+        </div>
+        <div id="ft-res-state-note" class="ft-state-note" style="display:none;"></div>
+      </div>
+      <a id="ft-pdf-link" href="https://agrimachinery.nic.in/Files/Guidelines/Guidelines_SMAM2024.pdf" target="_blank" rel="noopener" class="ft-pdf-badge">Official PDF ↗</a>
+    </div>
+
+    <!-- Action Buttons: WhatsApp Share, Print PDF, Copy Estimate -->
+    <div class="ft-result-actions">
+      <button type="button" class="ft-action-btn ft-btn-whatsapp" onclick="shareWhatsApp()">
+        <span>📱</span> <span data-en="Share on WhatsApp" data-hi="व्हाट्सएप पर शेयर करें">Share on WhatsApp</span>
+      </button>
+      <button type="button" class="ft-action-btn ft-btn-print" onclick="window.print()">
+        <span>🖨️</span> <span data-en="Print / Save PDF" data-hi="प्रिंट / पीडीएफ सेव करें">Print / Save PDF</span>
+      </button>
+      <button type="button" class="ft-action-btn ft-btn-copy" onclick="copyBreakdown()">
+        <span>📋</span> <span id="ft-copy-btn-text" data-en="Copy Estimate" data-hi="अनुमान कॉपी करें">Copy Estimate</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Documents Required Accordion -->
+  <details class="ft-accordion" open>
+    <summary class="ft-accordion-header">
+      <span>📄 Mandatory Documents Required for Application</span>
+      <span class="ft-accordion-arrow">▾</span>
+    </summary>
+    <div class="ft-accordion-content">
+      <p class="ft-accord-intro">
+        Prepare clear scanned copies (PDF / JPEG under 200 KB) before applying on the official DBT portal:
+      </p>
+      <ul id="ft-docs-list" class="ft-checklist">
+        <!-- Populated dynamically based on selected scheme and farmer category -->
+      </ul>
+      <div class="ft-warning-box">
+        ⚠️ <b>Important Verification Rule:</b> Farmer's Name, Father's Name, and Date of Birth must <b>match Aadhaar card exactly</b>. Land Record (Khasra/Khatauni/7-12) must be in the applicant's name. Wrong caste or land entries lead to immediate disqualification at physical verification by the District Agriculture Officer.
+      </div>
+    </div>
+  </details>
+
+  <!-- Step-by-Step Registration & Application Process -->
+  <details class="ft-accordion">
+    <summary class="ft-accordion-header">
+      <span>🔗 Step-by-Step Registration & Online Application Process</span>
+      <span class="ft-accordion-arrow">▾</span>
+    </summary>
+    <div class="ft-accordion-content">
+      <ol id="ft-steps-list" class="ft-steps">
+        <!-- Populated dynamically -->
+      </ol>
+      <div class="ft-portal-links-box">
+        <h4>Official Direct Government Portals:</h4>
+        <div class="ft-portal-grid">
+          <a href="https://agrimachinery.nic.in/Farmer/Management/Index" target="_blank" rel="noopener" class="ft-portal-card">
+            <span class="ft-portal-name">Central DBT Portal</span>
+            <span class="ft-portal-url">agrimachinery.nic.in/Farmer/Management/Index</span>
+          </a>
+          <a href="https://agrimachinery.nic.in/index/assistanceCalculator" target="_blank" rel="noopener" class="ft-portal-card">
+            <span class="ft-portal-name">Official Subsidy Calculator</span>
+            <span class="ft-portal-url">agrimachinery.nic.in/index/assistanceCalculator</span>
+          </a>
+          <a href="https://agrimachinery.nic.in/index/tracking" target="_blank" rel="noopener" class="ft-portal-card">
+            <span class="ft-portal-name">Track Application Status</span>
+            <span class="ft-portal-url">agrimachinery.nic.in/index/tracking</span>
+          </a>
+          <a id="ft-state-portal-card" href="https://wbfms.wb.gov.in/" target="_blank" rel="noopener" class="ft-portal-card" style="display:none;">
+            <span id="ft-state-portal-title" class="ft-portal-name">State Agriculture Portal</span>
+            <span id="ft-state-portal-url" class="ft-portal-url">Visit official state portal</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- Footer Disclaimer -->
+  <div class="ft-calc-footer">
+    <span>Verified against official Ministry of Agriculture & Farmers Welfare guidelines. Updated daily via cron hash checks. No middleman charges. Subsidy released directly to bank account via DBT.</span>
+  </div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- Stylesheet                                                                -->
+<!-- ========================================================================= -->
+<style>
+  .ft-calc-container {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    max-width: 760px;
+    margin: 20px auto;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    color: #1e293b;
+    box-sizing: border-box;
+  }
+  .ft-calc-container * { box-sizing: border-box; }
+  .ft-calc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    gap: 16px;
+  }
+  .ft-badge {
+    display: inline-block;
+    background: #dcfce7;
+    color: #166534;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .ft-title {
+    margin: 0 0 6px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1b4d3e;
+    line-height: 1.25;
+  }
+  .ft-subtitle {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.45;
+  }
+  .ft-header-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+  .ft-btn-link {
+    font-size: 12px;
+    font-weight: 600;
+    background: #1b4d3e;
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .ft-btn-link:hover { background: #13392e; }
+  .ft-btn-link-subtle {
+    font-size: 12px;
+    color: #1b4d3e;
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+  .ft-calc-body {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+  .ft-form-row { margin-bottom: 14px; }
+  .ft-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 5px;
+  }
+  .ft-select, .ft-input {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background-color: #ffffff;
+    color: #0f172a;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .ft-select:focus, .ft-input:focus {
+    outline: none;
+    border-color: #1b4d3e;
+    box-shadow: 0 0 0 3px rgba(27, 77, 62, 0.15);
+  }
+  .ft-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  @media (max-width: 640px) {
+    .ft-grid-3 { grid-template-columns: 1fr; }
+    .ft-calc-header { flex-direction: column; align-items: flex-start; }
+    .ft-header-links { align-items: flex-start; flex-direction: row; }
+  }
+  .ft-calc-btn {
+    width: 100%;
+    background: #1b4d3e;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .ft-calc-btn:hover { background: #13392e; }
+
+  /* Result Card */
+  .ft-result-card {
+    background: #ffffff;
+    border: 2px solid #1b4d3e;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 20px;
+    animation: ftFadeIn 0.3s ease;
+  }
+  @keyframes ftFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .ft-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+  .ft-res-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .ft-scheme-pill {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 12px;
+  }
+  .ft-result-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 640px) {
+    .ft-result-metrics { grid-template-columns: 1fr 1fr; }
+  }
+  .ft-metric-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+  }
+  .ft-metric-label { font-size: 11px; color: #64748b; font-weight: 600; margin-bottom: 4px; }
+  .ft-metric-val { font-size: 18px; font-weight: 800; color: #0f172a; }
+  .ft-metric-sub { font-size: 10px; color: #64748b; margin-top: 3px; }
+  .ft-text-success { color: #15803d !important; }
+  .ft-text-primary { color: #1b4d3e !important; }
+
+  .ft-citation-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+  .ft-citation-icon { font-size: 20px; }
+  .ft-citation-content { flex: 1; font-size: 12px; color: #065f46; line-height: 1.4; }
+  .ft-state-note { font-size: 11px; color: #047857; margin-top: 3px; font-style: italic; }
+  .ft-pdf-badge {
+    background: #ffffff;
+    border: 1px solid #6ee7b7;
+    color: #065f46;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 5px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .ft-pdf-badge:hover { background: #f0fdf4; }
+
+  /* Accordions */
+  .ft-accordion {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .ft-accordion-header {
+    background: #f1f5f9;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e293b;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  .ft-accordion[open] .ft-accordion-header { background: #e2e8f0; }
+  .ft-accordion-content {
+    padding: 14px;
+    background: #ffffff;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .ft-accord-intro { margin: 0 0 10px 0; color: #475569; font-size: 12px; }
+  .ft-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px 0;
+  }
+  .ft-checklist li {
+    padding: 6px 0;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .ft-check-icon { color: #166534; font-weight: 700; }
+  .ft-doc-link { color: #1b4d3e; font-size: 11px; text-decoration: underline; margin-left: 6px; }
+  .ft-warning-box {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    color: #92400e;
+    font-size: 11px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    line-height: 1.45;
+  }
+  .ft-steps {
+    padding-left: 18px;
+    margin: 0 0 14px 0;
+    color: #334155;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .ft-portal-links-box h4 {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    color: #0f172a;
+    font-weight: 700;
+  }
+  .ft-portal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  @media (max-width: 640px) {
+    .ft-portal-grid { grid-template-columns: 1fr; }
+  }
+  .ft-portal-card {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .ft-portal-card:hover { background: #f1f5f9; border-color: #cbd5e1; }
+  .ft-portal-name { font-size: 12px; font-weight: 700; color: #1b4d3e; }
+  .ft-portal-url { font-size: 10px; color: #64748b; margin-top: 2px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+
+  .ft-calc-footer {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 10px;
+    font-size: 11px;
+    color: #94a3b8;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .ft-result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #e2e8f0;
+  }
+  .ft-action-btn {
+    border: none;
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.1s, opacity 0.2s, background 0.2s;
+  }
+  .ft-action-btn:active { transform: scale(0.98); }
+  .ft-btn-whatsapp { background: #25d366; color: #ffffff !important; text-decoration: none; }
+  .ft-btn-whatsapp:hover { background: #1ebc59; }
+  .ft-btn-print { background: #0f172a; color: #ffffff; }
+  .ft-btn-print:hover { background: #1e293b; }
+  .ft-btn-copy { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+  .ft-btn-copy:hover { background: #e2e8f0; }
+
+  @media print {
+    body * { visibility: hidden; }
+    #farmingtools-subsidy-calculator, #farmingtools-subsidy-calculator * { visibility: visible; }
+    #farmingtools-subsidy-calculator { position: absolute; left: 0; top: 0; width: 100%; border: none !important; box-shadow: none !important; padding: 0 !important; }
+    .ft-calc-body, .ft-result-actions, .ft-header-links, #ft-lang-btn { display: none !important; }
+    #ft-result-card { border: 2px solid #000 !important; break-inside: avoid; display: block !important; }
+    .ft-accordion { break-inside: avoid; }
+    .ft-accordion-content { display: block !important; }
+    details { open: true !important; }
+  }
+</style>
+
+<!-- ========================================================================= -->
+<!-- Calculator JavaScript Logic (Offline Verified Engine + API Hybrid)       -->
+<!-- ========================================================================= -->
+<!-- Inlined Official Data Assets (Self-Contained Offline/Client Engine) -->
+<script>
+// State Registry (37 States and Union Territories)
+// Source: data/registration_info.json
+// Generated: 2026-09-28T11:13:47.159253
+const STATES = [
+  {
+    "code": "1",
+    "name": "Jammu & Kashmir",
+    "portal": "https://hadp.jk.gov.in/",
+    "portal_name": "HADP J&K / Directorate of Agriculture Jammu"
+  },
+  {
+    "code": "2",
+    "name": "Himachal Pradesh",
+    "portal": "https://krishi.hp.gov.in/",
+    "portal_name": "HP Agriculture Department Portal"
+  },
+  {
+    "code": "3",
+    "name": "Punjab",
+    "portal": "https://agrimachinerypb.com/",
+    "portal_name": "Punjab CRM / Subam Mechanization Portal"
+  },
+  {
+    "code": "4",
+    "name": "Chandigarh",
+    "portal": "https://chandigarh.gov.in/",
+    "portal_name": "Chandigarh UT Agriculture Office"
+  },
+  {
+    "code": "5",
+    "name": "Uttar Pradesh",
+    "portal": "http://upagriculture.com/",
+    "portal_name": "UP Agriculture DBT & Token Portal"
+  },
+  {
+    "code": "6",
+    "name": "Haryana",
+    "portal": "https://agriharyana.gov.in/MechCRMScheme",
+    "portal_name": "Agri Haryana MechCRM / Meri Fasal Mera Byora"
+  },
+  {
+    "code": "7",
+    "name": "Delhi",
+    "portal": "https://delhi.gov.in/",
+    "portal_name": "Delhi Agriculture Unit"
+  },
+  {
+    "code": "8",
+    "name": "Rajasthan",
+    "portal": "https://rajkisan.rajasthan.gov.in/",
+    "portal_name": "Rajkisan Sathi Portal"
+  },
+  {
+    "code": "9",
+    "name": "Uttarakhand",
+    "portal": "https://agriculture.uk.gov.in/",
+    "portal_name": "Uttarakhand Agriculture Directorate"
+  },
+  {
+    "code": "10",
+    "name": "Bihar",
+    "portal": "https://dbtagriculture.bihar.gov.in/",
+    "portal_name": "Bihar DBT Agriculture (OFMAS)"
+  },
+  {
+    "code": "11",
+    "name": "Sikkim",
+    "portal": "https://sikkim.gov.in/departments/agriculture-department",
+    "portal_name": "Sikkim Organic Agriculture Portal"
+  },
+  {
+    "code": "12",
+    "name": "Arunachal Pradesh",
+    "portal": "https://agri.arunachal.gov.in/",
+    "portal_name": "Arunachal Agriculture Department"
+  },
+  {
+    "code": "13",
+    "name": "Nagaland",
+    "portal": "https://agriculture.nagaland.gov.in/",
+    "portal_name": "Nagaland Agri Portal"
+  },
+  {
+    "code": "14",
+    "name": "Manipur",
+    "portal": "https://agrimanipur.mn.gov.in/",
+    "portal_name": "Manipur Agriculture Directorate"
+  },
+  {
+    "code": "15",
+    "name": "Mizoram",
+    "portal": "https://agriculturemizoram.nic.in/",
+    "portal_name": "Mizoram Agriculture Portal"
+  },
+  {
+    "code": "16",
+    "name": "Tripura",
+    "portal": "https://agri.tripura.gov.in/",
+    "portal_name": "Tripura Agri Portal"
+  },
+  {
+    "code": "17",
+    "name": "Meghalaya",
+    "portal": "https://megagriculture.gov.in/",
+    "portal_name": "Meghalaya Agriculture Department"
+  },
+  {
+    "code": "18",
+    "name": "Assam",
+    "portal": "https://diragri.assam.gov.in/",
+    "portal_name": "Assam Directorate of Agriculture"
+  },
+  {
+    "code": "19",
+    "name": "West Bengal",
+    "portal": "https://wbfms.wb.gov.in/",
+    "portal_name": "WBFMS / Matir Katha Portal"
+  },
+  {
+    "code": "20",
+    "name": "Jharkhand",
+    "portal": "https://agri.jharkhand.gov.in/",
+    "portal_name": "Jharkhand Krishi Department"
+  },
+  {
+    "code": "21",
+    "name": "Odisha",
+    "portal": "https://agrisnetodisha.ori.nic.in/",
+    "portal_name": "SAFAL / Agrisnet Odisha"
+  },
+  {
+    "code": "22",
+    "name": "Chhattisgarh",
+    "portal": "https://agriportal.cg.nic.in/",
+    "portal_name": "Chhattisgarh Kisan Portal"
+  },
+  {
+    "code": "23",
+    "name": "Madhya Pradesh",
+    "portal": "https://dbt.mpdage.org/",
+    "portal_name": "MP e-Krishi Yantra Anudan DBT Portal"
+  },
+  {
+    "code": "24",
+    "name": "Gujarat",
+    "portal": "https://ikhedut.gujarat.gov.in/",
+    "portal_name": "i-Khedut Gujarat Portal"
+  },
+  {
+    "code": "25",
+    "name": "Daman & Diu",
+    "portal": "https://daman.nic.in/",
+    "portal_name": "Daman & Diu UT Agri Administration"
+  },
+  {
+    "code": "26",
+    "name": "Dadra & Nagar Haveli",
+    "portal": "https://dnh.gov.in/",
+    "portal_name": "DNH UT Agri Administration"
+  },
+  {
+    "code": "27",
+    "name": "Maharashtra",
+    "portal": "https://mahadbt.maharashtra.gov.in/",
+    "portal_name": "MahaDBT Farmer Mechanization Portal"
+  },
+  {
+    "code": "28",
+    "name": "Andhra Pradesh",
+    "portal": "https://rythubharosa.ap.gov.in/",
+    "portal_name": "YSR Rythu Bharosa / Yantra Seva Portal"
+  },
+  {
+    "code": "29",
+    "name": "Karnataka",
+    "portal": "https://raitamitra.karnataka.gov.in/",
+    "portal_name": "Raita Mitra / FRUITS Portal"
+  },
+  {
+    "code": "30",
+    "name": "Goa",
+    "portal": "https://agri.goa.gov.in/",
+    "portal_name": "Goa Directorate of Agriculture"
+  },
+  {
+    "code": "31",
+    "name": "Lakshadweep",
+    "portal": "https://lakshadweep.gov.in/",
+    "portal_name": "Lakshadweep Agri Unit"
+  },
+  {
+    "code": "32",
+    "name": "Kerala",
+    "portal": "https://aims.kerala.gov.in/",
+    "portal_name": "AIMS Kerala / Karshaka Information Portal"
+  },
+  {
+    "code": "33",
+    "name": "Tamil Nadu",
+    "portal": "https://www.agristnet.tn.gov.in/",
+    "portal_name": "AGRISNET / Uzhavan Mobile App Portal"
+  },
+  {
+    "code": "34",
+    "name": "Puducherry",
+    "portal": "https://agri.py.gov.in/",
+    "portal_name": "Puducherry Agriculture Portal"
+  },
+  {
+    "code": "35",
+    "name": "Andaman & Nicobar Islands",
+    "portal": "https://agri.andaman.gov.in/",
+    "portal_name": "A&N Islands Agriculture Department"
+  },
+  {
+    "code": "36",
+    "name": "Telangana",
+    "portal": "https://karshak.telangana.gov.in/",
+    "portal_name": "Karshak / Rythu Bandhu Telangana"
+  },
+  {
+    "code": "37",
+    "name": "Ladakh",
+    "portal": "https://ladakh.nic.in/",
+    "portal_name": "UT Ladakh Agriculture Department"
+  }
+];
+
+if (typeof window !== 'undefined') { window.STATES = STATES; }
+if (typeof module !== 'undefined' && module.exports) { module.exports = { STATES }; }
+
+// Scheme-specific documents and process steps
+// Source: data/registration_info.json
+// Generated: 2026-09-28T11:13:47.159683
+const SCHEME_DOCS = {
+  "SMAM": {
+    "full_name": "Sub-Mission on Agricultural Mechanization (SMAM 2024)",
+    "target_group": "Individual farmers, Women farmers, SC/ST, Small & Marginal farmers",
+    "rates": "50% for SC/ST/Small/Marginal/Women/NE States (capped as per Annexure-I); 40% for General/OBC",
+    "guidelines_url": "https://agrimachinery.nic.in/Files/Guidelines/Guidelines_SMAM2024.pdf",
+    "portal_url": "https://agrimachinery.nic.in/Farmer/Management/Index",
+    "documents": [
+      {
+        "item": "Aadhaar Card (UID)",
+        "mandatory": true,
+        "purpose": "Identity verification & DBT linkage",
+        "link": "https://uidai.gov.in/"
+      },
+      {
+        "item": "Passport-size photograph",
+        "mandatory": true,
+        "purpose": "Profile identification on portal",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      },
+      {
+        "item": "Record of Rights (RoR) / Land Record (7/12, Khasra, Khatauni)",
+        "mandatory": true,
+        "purpose": "Proof of agricultural land holding",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      },
+      {
+        "item": "First page of Bank Passbook / Cancelled Cheque",
+        "mandatory": true,
+        "purpose": "Bank account IFSC and account number for DBT subsidy credit",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      },
+      {
+        "item": "Government ID Proof (Aadhaar / Voter ID / Driving License / PAN)",
+        "mandatory": true,
+        "purpose": "Secondary identity verification",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      },
+      {
+        "item": "Caste Certificate (SC/ST/OBC)",
+        "mandatory": false,
+        "purpose": "Mandatory only for claiming 50% priority subsidy",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      }
+    ],
+    "process_steps": [
+      "1. Register on agrimachinery.nic.in using Aadhaar & mobile number.",
+      "2. Select State, District, Sub-District, Block, and Village from dropdowns.",
+      "3. Provide land details with scanned RoR document.",
+      "4. Choose machine and empanelled dealer from the approved list.",
+      "5. Online application submitted to State Level Executive Committee (SLEC).",
+      "6. Verification, sanction order issued, and subsidy released directly via DBT."
+    ]
+  },
+  "CRM": {
+    "full_name": "Crop Residue Management (CRM) Scheme (In-situ)",
+    "target_group": "Farmers, CHCs, FPOs, and Panchayats in Punjab, Haryana, UP, and Delhi",
+    "rates": "50% for individual farmers; 80% for Custom Hiring Centres (project cost ₹5L-₹15L)",
+    "guidelines_url": "https://agrimachinery.nic.in/Files/Guidelines/CRMGuideline2020-21.pdf",
+    "portal_url": "https://agriharyana.gov.in/MechCRMScheme",
+    "documents": [
+      {
+        "item": "Aadhaar Card & Parivar Pehchan Patra (Family ID)",
+        "mandatory": true,
+        "purpose": "Identification on state portal (e.g. Haryana PPP)",
+        "link": "https://meraparivar.haryana.gov.in/"
+      },
+      {
+        "item": "Meri Fasal Mera Byora (MFMB) Registration",
+        "mandatory": true,
+        "purpose": "Crop registration verification",
+        "link": "https://fasal.haryana.gov.in/"
+      },
+      {
+        "item": "Land Record (Jamabandi / Farad)",
+        "mandatory": true,
+        "purpose": "Proof of land cultivated with paddy/wheat",
+        "link": "https://jamabandi.nic.in/"
+      },
+      {
+        "item": "Bank Account Details (Aadhaar-seeded)",
+        "mandatory": true,
+        "purpose": "DBT transfer",
+        "link": "https://agriharyana.gov.in/MechCRMScheme"
+      },
+      {
+        "item": "Under-taking not to burn crop residue",
+        "mandatory": true,
+        "purpose": "Affidavit against stubble burning",
+        "link": "https://agriharyana.gov.in/MechCRMScheme"
+      }
+    ],
+    "process_steps": [
+      "1. Register on State CRM Portal (Haryana MechCRM / Punjab Agrimachinery / UP Agriculture).",
+      "2. Enter Family ID / Farmer ID to fetch verified land details.",
+      "3. Select approved CRM machinery (Super Seeder, Baler, Happy Seeder, Mulcher).",
+      "4. State lottery/selection process triggers sanction token.",
+      "5. Purchase machine from empanelled dealer and upload invoice & GPS photo.",
+      "6. Physical verification by Agriculture Development Officer followed by DBT credit."
+    ]
+  },
+  "CHC": {
+    "full_name": "Custom Hiring Centre (CHC) Scheme (SMAM Component 4.2)",
+    "target_group": "Rural youth entrepreneurs, Cooperatives, Registered Farmer Societies, FPOs, Panchayats",
+    "rates": "40% capital subsidy on project cost up to ₹250 Lakhs (80% up to ₹15L under CRM; 50% up to ₹9L for Agriculture Graduates for Drone CHC)",
+    "guidelines_url": "https://agrimachinery.nic.in/Files/Guidelines/Guidelines_SMAM2024.pdf",
+    "portal_url": "https://agrimachinery.nic.in/Farmer/Management/Index",
+    "documents": [
+      {
+        "item": "Registration Certificate of Society / FPO / Firm / Partnership",
+        "mandatory": true,
+        "purpose": "Entity legal status verification",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      },
+      {
+        "item": "Detailed Project Report (DPR)",
+        "mandatory": true,
+        "purpose": "Machinery list, business viability, and financial plan",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      },
+      {
+        "item": "Bank Loan Sanction Letter / Term Loan Agreement",
+        "mandatory": true,
+        "purpose": "Credit-linked capital subsidy requirement",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      },
+      {
+        "item": "Land ownership / Lease deed for Machinery Shed (minimum 5-10 years)",
+        "mandatory": true,
+        "purpose": "Yard and parking infrastructure proof",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      },
+      {
+        "item": "Agriculture Degree Certificate (for Agri-Graduate 50% Drone CHC)",
+        "mandatory": false,
+        "purpose": "Special 50% concession for agriculture graduates",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      }
+    ],
+    "process_steps": [
+      "1. Formulate Detailed Project Report (DPR) with machine list matching regional cropping patterns.",
+      "2. Secure term loan from commercial / cooperative bank (Bank-linked subsidy model).",
+      "3. Apply online at agrimachinery.nic.in under CHC component.",
+      "4. State Level Executive Committee (SLEC) review and project sanction.",
+      "5. Subsidy kept in Subsidy Reserve Fund (SRF) account and adjusted against loan principal."
+    ]
+  },
+  "FMB": {
+    "full_name": "Village Level Farm Machinery Bank (FMB) (SMAM Component 4.3)",
+    "target_group": "Cooperative Societies, Registered Farmer Societies, SHGs, FPOs, Panchayats",
+    "rates": "80% financial assistance up to ₹30 Lakhs (max ₹24L subsidy); 90% up to ₹27L for FRA Patta holders; 95% up to ₹28.5L in NER",
+    "guidelines_url": "https://agrimachinery.nic.in/Files/Guidelines/Guidelines_SMAM2024.pdf",
+    "portal_url": "https://agrimachinery.nic.in/Farmer/Management/Index",
+    "documents": [
+      {
+        "item": "Society / SHG / FPO Registration Certificate",
+        "mandatory": true,
+        "purpose": "Legal verification of collective group",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      },
+      {
+        "item": "Resolution of General Body / Executive Committee",
+        "mandatory": true,
+        "purpose": "Formal resolution to set up Farm Machinery Bank",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      },
+      {
+        "item": "List of Member Farmers with Aadhaar Numbers & Land Holdings",
+        "mandatory": true,
+        "purpose": "Beneficiary coverage assessment",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      },
+      {
+        "item": "Bank Account Details of the Society / Group",
+        "mandatory": true,
+        "purpose": "Direct grant disbursement",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      },
+      {
+        "item": "FRA Patta certificate (if claiming 90% tribal assistance)",
+        "mandatory": false,
+        "purpose": "Forest Rights Act verification",
+        "link": "https://agrimachinery.nic.in/Farmer/Management/Index"
+      }
+    ],
+    "process_steps": [
+      "1. Village selection based on low mechanization index in rainfed/aspirational district.",
+      "2. Society/SHG submits resolution and machine equipment requisition.",
+      "3. Approval by District Nodal Committee and SLEC.",
+      "4. Procurement from empanelled manufacturers.",
+      "5. Commissioning of machinery bank and online listing on FARMS mobile app."
+    ]
+  },
+  "NAMO_DRONE_DIDI": {
+    "full_name": "Central Sector Scheme Namo Drone Didi",
+    "target_group": "Women Self Help Groups (SHGs) under DAY-NRLM / State Rural Livelihood Missions",
+    "rates": "80% Central Financial Assistance up to ₹8.00 Lakhs for drone, accessories, and training. Balance 20% funded via AIF loan with 3% interest subvention.",
+    "guidelines_url": "https://agrimachinery.nic.in/Files/Guidelines/Guidelines_SMAM2024.pdf",
+    "portal_url": "https://agrimachinery.nic.in/Farmer/Management/Index",
+    "documents": [
+      {
+        "item": "DAY-NRLM SHG Registration Certificate",
+        "mandatory": true,
+        "purpose": "Proof of active Women SHG status under SRLM",
+        "link": "https://nrlm.gov.in/"
+      },
+      {
+        "item": "Resolution nominating 2 members (1 Drone Pilot, 1 Drone Assistant)",
+        "mandatory": true,
+        "purpose": "DGCA approved Remote Pilot Training certification",
+        "link": "https://nrlm.gov.in/"
+      },
+      {
+        "item": "Educational Certificate (Minimum 10th pass for pilot nominee)",
+        "mandatory": true,
+        "purpose": "DGCA Remote Pilot License requirement",
+        "link": "https://dgca.gov.in/"
+      },
+      {
+        "item": "SHG Bank Passbook / AIF Loan Account Details",
+        "mandatory": true,
+        "purpose": "Direct grant release & 3% interest subvention",
+        "link": "https://agriinfra.dac.gov.in/"
+      }
+    ],
+    "process_steps": [
+      "1. Selection of SHG by State Rural Livelihood Mission (SRLM) and Lead Fertilizer Companies (LFC).",
+      "2. Nominated member completes 15-day DGCA-certified drone pilot training course.",
+      "3. Drone package (DGCA type certified drone, batteries, charging hub, spray nozzles) supplied by empanelled OEM.",
+      "4. 80% subsidy released directly; remaining 20% sanctioned under Agriculture Infrastructure Fund (AIF).",
+      "5. SHG offers rental spraying services to regional farmers at ₹300-₹500/acre."
+    ]
+  }
+};
+
+const CENTRAL_PORTLINKS = {
+  "dbt_portal": "https://agrimachinery.nic.in/Farmer/Management/Index",
+  "calculator": "https://agrimachinery.nic.in/index/assistanceCalculator",
+  "tracking": "https://agrimachinery.nic.in/index/tracking",
+  "guidelines_smam_2024": "https://agrimachinery.nic.in/Files/Guidelines/Guidelines_SMAM2024.pdf",
+  "guidelines_smam_2018": "https://agrimachinery.nic.in/Files/Guidelines/smam1920.pdf",
+  "guidelines_crm_2020": "https://agrimachinery.nic.in/Files/Guidelines/CRMGuideline2020-21.pdf",
+  "dbt_manual_pdf": "https://agrimachinery.nic.in/Files/Product/DBT-FarmerManual----PDF.pdf",
+  "farms_chc_app": "https://agrimachinery.nic.in/Files/FAQ_CHC_MobAPP.pdf",
+  "helpdesk_email": "support-agrimech@gov.in"
+};
+
+if (typeof window !== 'undefined') { window.SCHEME_DOCS = SCHEME_DOCS; window.CENTRAL_PORTLINKS = CENTRAL_PORTLINKS; }
+if (typeof module !== 'undefined' && module.exports) { module.exports = { SCHEME_DOCS, CENTRAL_PORTLINKS }; }
+
 // Full verified machinery database (175 machines)
 // Source: agrimachinery.nic.in SMAM 2024 Guidelines Annexure-II(c)
 // Generated: 2026-09-28T11:13:47.164358
@@ -3984,3 +5045,506 @@ const FULL_DB = {
 
 if (typeof window !== 'undefined') { window.FULL_DB = FULL_DB; }
 if (typeof module !== 'undefined' && module.exports) { module.exports = { FULL_DB }; }
+
+</script>
+<script>
+(function() {
+  const API_ENDPOINT = window.FT_SUBSIDY_API_URL || "/api/subsidy/calculate";
+  const PRIORITY_CATS = new Set(["SC", "ST", "Small", "Marginal", "Women", "NE_State", "FRA", "SHG", "FPO", "Cooperative"]);
+  const PROJECT_CATS = new Set(["FPO", "Cooperative", "Rural_Youth", "FRA"]);
+
+  function schemeToKey(code) {
+    const m = {"SMAM": "SMAM", "CRM": "CRM", "CHC": "CHC", "FMB": "FMB", "NAMO_DRONE_DIDI": "NAMO_DRONE_DIDI", "RKVY": "RKVY"};
+    return m[code] || code;
+  }
+
+  function normalizeStateKey(str) {
+    if (!str) return "";
+    return String(str).toUpperCase().replace(/\s+&\s+/g, '_').replace(/[\s\-().]/g, '_').replace(/__+/g, '_');
+  }
+
+  function stateCodeToName(code) {
+    for (const s of (window.STATES || STATES || [])) {
+      if (String(s.code) === String(code)) return s.name;
+    }
+    return null;
+  }
+
+  function initUI() {
+    populateStateDropdown();
+    populateMachineDropdown("ALL");
+    runCalculation();
+  }
+
+  function populateStateDropdown() {
+    const sel = document.getElementById("ft-state");
+    if (!sel) return;
+    sel.innerHTML = '<option value="">— Central Subsidy (All India) —</option>';
+    STATES.forEach(st => {
+      const o = document.createElement("option");
+      o.value = st.code;
+      o.textContent = st.name;
+      sel.appendChild(o);
+    });
+  }
+
+  function populateMachineDropdown(filterScheme, searchQuery) {
+    const sel = document.getElementById("ft-machine");
+    if (!sel) return;
+    const currentVal = sel.value;
+    sel.innerHTML = "";
+    const g = {};
+    const db = window.FULL_DB || FULL_DB || {};
+    const sq = (searchQuery || "").trim().toLowerCase();
+    let count = 0;
+
+    for (const mid in db) {
+      const it = db[mid];
+      if (filterScheme && filterScheme !== "ALL" && it.scheme !== filterScheme) continue;
+      if (sq && !it.name.toLowerCase().includes(sq) && !(it.cat || "").toLowerCase().includes(sq)) continue;
+      (g[it.cat] = g[it.cat] || []).push({id: mid, name: it.name, scheme: it.scheme});
+      count++;
+    }
+
+    const badge = document.getElementById("ft-machine-count-badge");
+    if (badge) badge.textContent = count + " available";
+
+    for (const c in g) {
+      const og = document.createElement("optgroup");
+      og.label = c;
+      g[c].forEach(m => {
+        const o = document.createElement("option");
+        o.value = m.id;
+        o.textContent = m.name + " (" + m.scheme + ")";
+        og.appendChild(o);
+      });
+      sel.appendChild(og);
+    }
+
+    if (currentVal && Array.from(sel.options).some(o => o.value === currentVal)) {
+      sel.value = currentVal;
+    }
+  }
+
+  window.onSchemeChange = function() {
+    const sch = document.getElementById("ft-scheme").value;
+    const searchEl = document.getElementById("ft-machine-search");
+    const q = searchEl ? searchEl.value : "";
+    populateMachineDropdown(sch, q);
+    onMachineChange();
+  };
+
+  window.onSearchChange = function() {
+    const sch = document.getElementById("ft-scheme").value;
+    const q = document.getElementById("ft-machine-search").value;
+    populateMachineDropdown(sch, q);
+    onMachineChange();
+  };
+
+  window.onMachineChange = function() {
+    const mid = document.getElementById("ft-machine").value;
+    const db = window.FULL_DB || FULL_DB || {};
+    const m = db[mid];
+    if (m && m.pCap) {
+      document.getElementById("ft-price").value = Math.round(m.pCap / (m.gPct || 0.4) / 1000) * 1000;
+    }
+    runCalculation();
+  };
+
+  let currentLang = "en";
+  window.toggleLanguage = function() {
+    currentLang = currentLang === "en" ? "hi" : "en";
+    const lbl = document.getElementById("ft-lang-label");
+    if (lbl) lbl.textContent = currentLang === "en" ? "हिंदी में देखें" : "View in English";
+    document.querySelectorAll("[data-en]").forEach(el => {
+      const txt = currentLang === "hi" ? el.getAttribute("data-hi") : el.getAttribute("data-en");
+      if (txt) {
+        if (el.tagName === "INPUT" && el.hasAttribute("placeholder")) el.placeholder = txt;
+        else el.textContent = txt;
+      }
+    });
+  };
+
+  window.shareWhatsApp = function() {
+    const mid = document.getElementById("ft-machine").value;
+    const db = window.FULL_DB || FULL_DB || {};
+    const m = db[mid];
+    const mName = m ? m.name : "Agricultural Machine";
+    const totalVal = document.getElementById("ft-res-total-val")?.textContent || "₹0";
+    const farmerVal = document.getElementById("ft-res-farmer-val")?.textContent || "₹0";
+    const priceVal = document.getElementById("ft-price")?.value || "0";
+    const schemeBadge = document.getElementById("ft-res-scheme-badge")?.textContent || "SMAM 2024";
+
+    const text = `🌾 *Krishi Yantra Subsidy Estimate (farmingtools.in)*\n` +
+      `🚜 *Machine:* ${mName}\n` +
+      `📜 *Scheme:* ${schemeBadge}\n` +
+      `💰 *Dealer Price:* ₹${Number(priceVal).toLocaleString("en-IN")}\n` +
+      `✅ *Total Govt Subsidy:* ${totalVal} (DBT directly to bank)\n` +
+      `👤 *Farmer Net Share:* ${farmerVal}\n\n` +
+      `Apply online at official portal: https://agrimachinery.nic.in/Farmer/Management/Index\n` +
+      `Calculate online: https://farmingtools.in`;
+
+    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(text), "_blank");
+  };
+
+  window.copyBreakdown = function() {
+    const mid = document.getElementById("ft-machine").value;
+    const db = window.FULL_DB || FULL_DB || {};
+    const m = db[mid];
+    const mName = m ? m.name : "Agricultural Machine";
+    const centralVal = document.getElementById("ft-res-central-val")?.textContent || "₹0";
+    const stateVal = document.getElementById("ft-res-state-val")?.textContent || "₹0";
+    const totalVal = document.getElementById("ft-res-total-val")?.textContent || "₹0";
+    const farmerVal = document.getElementById("ft-res-farmer-val")?.textContent || "₹0";
+    const priceVal = document.getElementById("ft-price")?.value || "0";
+    const schemeBadge = document.getElementById("ft-res-scheme-badge")?.textContent || "SMAM 2024";
+
+    const text = `Krishi Yantra Subsidy Estimate (farmingtools.in)\n` +
+      `Machine: ${mName}\n` +
+      `Scheme: ${schemeBadge}\n` +
+      `Dealer Price: ₹${Number(priceVal).toLocaleString("en-IN")}\n` +
+      `Central Govt Subsidy: ${centralVal}\n` +
+      `State Top-Up: ${stateVal}\n` +
+      `Total Govt Assistance: ${totalVal}\n` +
+      `Farmer's Net Share: ${farmerVal}\n` +
+      `Source: Official Government Guidelines (agrimachinery.nic.in)`;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById("ft-copy-btn-text");
+        if (btn) {
+          const orig = btn.textContent;
+          btn.textContent = "Copied! ✓";
+          setTimeout(() => { btn.textContent = orig; }, 2000);
+        }
+      });
+    }
+  };
+
+  window.runCalculation = function() {
+    const mid = document.getElementById("ft-machine").value;
+    const cat = document.getElementById("ft-category").value;
+    const priceEl = document.getElementById("ft-price");
+    const errEl = document.getElementById("ft-calc-error");
+    const stateCode = document.getElementById("ft-state").value;
+    const price = parseFloat(priceEl.value);
+
+    if (errEl) errEl.style.display = "none";
+
+    if (!mid) { showError("Please select an agricultural machine from the dropdown."); return; }
+    if (isNaN(price) || price <= 0) { showError("Please enter a valid dealer price greater than ₹0."); priceEl.style.borderColor = "#ef4444"; return; }
+    if (price > 100000000) { showError("Price seems unusually high. Please verify the dealer sale price."); priceEl.style.borderColor = "#f59e0b"; return; }
+    priceEl.style.borderColor = "";
+
+    const db = window.FULL_DB || FULL_DB || {};
+    const m = db[mid];
+    if (!m) { showError("Machine data not found. Please select a different machine."); return; }
+
+    const isPriority = PRIORITY_CATS.has(cat);
+    let pct = isPriority ? m.pPct : m.gPct;
+    let cap = isPriority ? m.pCap : m.gCap;
+    if (cat === "FRA" && m.scheme === "FMB") { pct = 90; cap = 2700000; }
+    if (cat === "SHG" && m.scheme === "NAMO_DRONE_DIDI") { pct = 80; cap = 800000; }
+    if (cat === "FPO" && m.scheme === "SMAM") { pct = 75; cap = 750000; }
+    if (cat === "Cooperative" && m.scheme === "FMB") { pct = 80; cap = 2400000; }
+    if (cat === "Rural_Youth" && m.scheme === "CHC") { pct = 40; cap = 10000000; }
+
+    const unitsEl = document.getElementById("ft-units");
+    const units = unitsEl ? Math.max(1, parseInt(unitsEl.value) || 1) : 1;
+    const gstCheck = document.getElementById("ft-gst-inclusive");
+    const isGstInclusive = gstCheck ? gstCheck.checked : false;
+
+    let calcPrice = price;
+    const gstBox = document.getElementById("ft-gst-breakdown");
+    if (isGstInclusive) {
+      const baseCost = Math.round(price / 1.12);
+      const taxAmt = price - baseCost;
+      calcPrice = baseCost;
+      if (gstBox) {
+        gstBox.style.display = "block";
+        document.getElementById("ft-gst-base").textContent = "₹" + (baseCost * units).toLocaleString("en-IN");
+        document.getElementById("ft-gst-tax").textContent = "₹" + (taxAmt * units).toLocaleString("en-IN");
+        document.getElementById("ft-gst-total").textContent = "₹" + (price * units).toLocaleString("en-IN");
+      }
+    } else {
+      if (gstBox) gstBox.style.display = "none";
+    }
+
+    const totalCost = calcPrice * units;
+    const totalEffectiveCap = cap * units;
+    const centralRaw = (pct / 100) * totalCost;
+    const centralSubsidy = Math.min(centralRaw, totalEffectiveCap);
+
+    let stateSubsidy = 0;
+    let stateInfo = null;
+    let stateNote = "";
+
+    if (stateCode) {
+      const sn = stateCodeToName(stateCode);
+      if (sn) {
+        const stateKey = normalizeStateKey(sn);
+        const matching = (m.stateTopups || []).filter(st => normalizeStateKey(st.state) === stateKey);
+        if (matching.length > 0) {
+          const cs = m.scheme.toUpperCase();
+          const isProj = PROJECT_CATS.has(cat);
+          const score = st => {
+            let s = 0;
+            const ss = (st.scheme || "").toUpperCase();
+            if (ss === cs) s += 100;
+            if (isProj && (ss === "FMB" || ss === "CHC")) s += 50;
+            if (!isProj && ss !== "FMB" && ss !== "CHC") s += 50;
+            if (st.source) s += 1;
+            return s;
+          };
+          matching.sort((a, b) => score(b) - score(a));
+          const best = matching[0];
+          if (matching.length === 0 || score(best) < 50) {
+            // No scheme-compatible state top-up found
+            stateNote = "No scheme-compatible state top-up on record — central subsidy applies";
+            const sp = best.pct || 0;
+            const sf = best.flat || 0;
+            const sc = (sp / 100) * totalCost;
+            const sa = sf > 0 ? Math.min(sc, sf * units) : sc;
+            stateSubsidy = Math.min(sa, totalCost - centralSubsidy);
+            stateInfo = { name: sn, pct: sp, flat: sf * units, source: best.source || "State Agriculture Department" };
+            stateNote = "State Top-up: " + sp + "% (cap ₹" + (sf * units).toLocaleString("en-IN") + ") — " + (best.source || "Verified state scheme");
+          }
+        }
+      }
+    }
+
+    const totalSubsidy = Math.min(centralSubsidy + stateSubsidy, totalCost);
+    const farmerShare = Math.max(0, totalCost - totalSubsidy);
+
+    renderResults({
+      machineName: m.name, scheme: m.scheme, price: totalCost, pct: pct, cap: totalEffectiveCap,
+      centralSubsidy: centralSubsidy, stateSubsidy: stateSubsidy,
+      stateInfo: stateInfo, stateNote: stateNote,
+      totalSubsidy: totalSubsidy, farmerShare: farmerShare,
+      stateCode: stateCode, units: units,
+      pdfUrl: m.sourceUrl || "https://agrimachinery.nic.in/Files/Guidelines/Guidelines_SMAM2024.pdf",
+      isPriority: isPriority, farmerCategory: cat
+    });
+
+    enrichWithAPI(mid, cat, calcPrice, stateCode, units);
+  };
+
+  function showError(msg) {
+    let errEl = document.getElementById("ft-calc-error");
+    if (!errEl) {
+      errEl = document.createElement("div");
+      errEl.id = "ft-calc-error";
+      errEl.style.cssText = "background:#fef2f2;border:1px solid #fca5a5;color:#991b1b;padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:14px;";
+      const body = document.querySelector(".ft-calc-body");
+      if (body) document.getElementById("farmingtools-subsidy-calculator").insertBefore(errEl, body);
+      else document.getElementById("farmingtools-subsidy-calculator").appendChild(errEl);
+    }
+    errEl.textContent = "⚠️ " + msg;
+    errEl.style.display = "block";
+  }
+
+  function enrichWithAPI(mid, cat, price, stateCode, units = 1) {
+    fetch(API_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ machine_id: mid, farmer_category: cat, dealer_price: price, state_code: stateCode, units: units })
+    })
+    .then(r => r.ok ? r.json() : null)
+    .then(res => {
+      if (res && res.success && res.data) {
+        const d = res.data;
+        const srcEl = document.getElementById("ft-res-source");
+        if (srcEl && d.source_citation) srcEl.innerHTML = "<b>Official Citation:</b> " + d.source_citation;
+        if (d.documents_required?.length) updateDocumentsListFromData(d.documents_required);
+        if (d.registration_process?.steps) updateStepsListFromData(d.registration_process, d.registration_process.state_portal);
+        const badge = document.getElementById("ft-res-scheme-badge");
+        if (badge && d.scheme) badge.textContent = d.scheme + " Guidelines Verified";
+
+        // Synchronize metrics from authoritative server API response
+        if (d.central) {
+          const cVal = document.getElementById("ft-res-central-val");
+          const cSub = document.getElementById("ft-res-central-sub");
+          if (cVal) cVal.textContent = "₹" + Math.round(d.central.applicable_amount).toLocaleString("en-IN");
+          if (cSub) cSub.textContent = d.central.percentage + "% (Cap: ₹" + Math.round(d.central.cap_per_unit).toLocaleString("en-IN") + ")";
+        }
+        if (d.state_topup) {
+          const sve = document.getElementById("ft-res-state-val");
+          const sse = document.getElementById("ft-res-state-sub");
+          if (sve && sse) {
+            if (d.state_topup.eligible) {
+              sve.textContent = "₹" + Math.round(d.state_topup.applicable_amount).toLocaleString("en-IN");
+              sse.textContent = "State incentive: " + (d.state_topup.percentage || 0) + "% (cap ₹" + Math.round(d.state_topup.cap_per_unit || 0).toLocaleString("en-IN") + ")";
+            } else if (stateCode) {
+              sve.textContent = "₹0";
+              sse.textContent = "No state top-up on record — central subsidy applies";
+            } else {
+              sve.textContent = "₹0";
+              sse.textContent = "Select state above for state top-up";
+            }
+          }
+        }
+        if (typeof d.total_subsidy !== "undefined") {
+          const tVal = document.getElementById("ft-res-total-val");
+          const tSub = document.getElementById("ft-res-total-sub");
+          if (tVal) tVal.textContent = "₹" + Math.round(d.total_subsidy).toLocaleString("en-IN");
+          if (tSub) tSub.textContent = Math.round((d.total_subsidy / (d.dealer_price || price || 1)) * 100) + "% of dealer sale price";
+        }
+        if (typeof d.farmer_contribution !== "undefined") {
+          const fVal = document.getElementById("ft-res-farmer-val");
+          if (fVal) fVal.textContent = "₹" + Math.round(d.farmer_contribution).toLocaleString("en-IN");
+        }
+      }
+    })
+    .catch(() => {});
+  }
+
+  function renderResults(d) {
+    const card = document.getElementById("ft-result-card");
+    if (!card) return;
+    card.style.display = "block";
+    const errEl = document.getElementById("ft-calc-error");
+    if (errEl) errEl.style.display = "none";
+
+    document.getElementById("ft-res-machine-title").textContent = d.machineName;
+    document.getElementById("ft-res-scheme-badge").textContent = d.scheme + " Guidelines Verified";
+    document.getElementById("ft-res-central-val").textContent = "₹" + Math.round(d.centralSubsidy).toLocaleString("en-IN");
+    document.getElementById("ft-res-central-sub").textContent = d.pct + "% (Cap: ₹" + Math.round(d.cap).toLocaleString("en-IN") + ")";
+
+    const sve = document.getElementById("ft-res-state-val");
+    const sse = document.getElementById("ft-res-state-sub");
+    if (d.stateSubsidy > 0 && d.stateInfo) {
+      sve.textContent = "₹" + Math.round(d.stateSubsidy).toLocaleString("en-IN");
+      sse.textContent = "State incentive: " + d.stateInfo.pct + "% (cap ₹" + d.stateInfo.flat.toLocaleString("en-IN") + ")";
+    } else if (d.stateCode) {
+      sve.textContent = "₹0";
+      sse.textContent = "No state top-up on record — central subsidy applies";
+    } else {
+      sve.textContent = "₹0";
+      sse.textContent = "Select state above for state top-up";
+    }
+
+    document.getElementById("ft-res-total-val").textContent = "₹" + Math.round(d.totalSubsidy).toLocaleString("en-IN");
+    document.getElementById("ft-res-total-sub").textContent = Math.round((d.totalSubsidy / (d.price || 1)) * 100) + "% of dealer sale price";
+    document.getElementById("ft-res-farmer-val").textContent = "₹" + Math.round(d.farmerShare).toLocaleString("en-IN");
+    document.getElementById("ft-res-farmer-sub").textContent = "Farmer net out-of-pocket";
+
+    const srcEl = document.getElementById("ft-res-source");
+    srcEl.innerHTML = "<b>Official Citation:</b> Central Scheme: " + d.scheme + " Guidelines (2024-25) — Ministry of Agriculture & Farmers Welfare, GoI" +
+      (d.stateNote ? "<br><span style='color:#047857;font-size:11px;'>" + d.stateNote + "</span>" : "");
+
+    const snEl = document.getElementById("ft-res-state-note");
+    if (d.stateNote) { snEl.textContent = d.stateNote; snEl.style.display = "block"; } else { snEl.style.display = "none"; }
+
+    if (d.pdfUrl) document.getElementById("ft-pdf-link").href = d.pdfUrl;
+
+    const spCard = document.getElementById("ft-state-portal-card");
+    if (d.stateCode) {
+      const st = STATES.find(s => s.code === d.stateCode);
+      if (st) {
+        spCard.style.display = "flex";
+        spCard.href = st.portal;
+        document.getElementById("ft-state-portal-title").textContent = st.name + " Agriculture Portal";
+        document.getElementById("ft-state-portal-url").textContent = st.portal.replace(/^https?:\/\//, "");
+      }
+    } else { spCard.style.display = "none"; }
+
+    updateDocumentsList(d.scheme, d.isPriority, d.farmerCategory);
+    updateStepsList(d.scheme, d.stateCode);
+  }
+
+  function updateDocumentsList(scheme, isPriority, cat) {
+    const list = document.getElementById("ft-docs-list");
+    if (!list) return;
+    const sd = SCHEME_DOCS[scheme] || {};
+    const base = [
+      { name: "Aadhaar Card (UID)", link: "https://uidai.gov.in/", note: "Name + DOB must match EXACTLY — OTP authentication is Aadhaar-linked" },
+      { name: "Passport-size Photograph (coloured, JPEG < 50 KB)", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "Recent photo for portal profile identification" },
+      { name: "Land Record / RoR / 7-12 Extract / Khatauni / Khasra", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "Land must be in applicant's name. For CRM schemes also upload MFMB-compatible Jamabandi/Fard." },
+      { name: "Bank Passbook First Page / Cancelled Cheque (with IFSC)", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "Account must be Aadhaar-seeded for Direct Benefit Transfer (DBT) credit" }
+    ];
+    const extra = [];
+    if (scheme === "SMAM") {
+      if (isPriority) extra.push({ name: "Caste Certificate (SC/ST/OBC) — issued by Tehsildar / SDM", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "Mandatory to claim the 50% priority subsidy rate instead of standard 40%" });
+      if (["Small","Marginal"].includes(cat)) extra.push({ name: "Land Holding Certificate / Small & Marginal Farmer Certificate", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "Required to claim small/marginal priority status" });
+    } else if (scheme === "CRM") {
+      extra.push({ name: "Meri Fasal Mera Byora (MFMB) Registration / State CRM Portal Registration", link: "https://fasal.haryana.gov.in/", note: "Primary CRM registration — Haryana farmers use MFMB. Punjab: Subam Portal. UP: UP Agriculture DBT." });
+      extra.push({ name: "Parivar Pehchan Patra (PPP) / State Family ID", link: "https://meraparivar.haryana.gov.in/", note: "Linked to land records for automatic validation. UP: create via UP Agri portal." });
+      extra.push({ name: "Undertaking / Affidavit: Not to burn paddy crop residue", link: "https://agriharyana.gov.in/MechCRMScheme", note: "Signed affidavit or online undertaking against stubble burning — mandatory for CRM eligibility" });
+      extra.push({ name: "Geo-tagged Field Photographs (before & after machine operation)", link: "https://agriharyana.gov.in/MechCRMScheme", note: "Upload post-harvest photos with GPS coordinates as proof of in-situ residue management" });
+    } else if (scheme === "CHC") {
+      extra.push({ name: "Entity Registration — Society / FPO / Firm / Company / Panchayat", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "Registrar of Societies / FES / Panchayat resolution. For rural youth enterprises: Udyam Aadhaar registration." });
+      extra.push({ name: "Detailed Project Report (DPR) — machine list, capacity, ROI projection", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "DPR must list machines with technical specs, unit costs, land area, staff plan, and repayment schedule" });
+      extra.push({ name: "Term Loan Sanction Letter from Bank / Cooperative / NABARD", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "CREDIT-LINKED SUBSIDY: bank loan is mandatory before portal application. Subsidy adjusts against loan principal." });
+      extra.push({ name: "Land Deed / Lease for Machinery Shed (minimum 5 years)", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "Yard + parking + covered storage proof. 5-10 year lease or ownership deed required." });
+      if (cat === "FPO" || cat === "Cooperative") extra.push({ name: "FPO / Cooperative Certificate + Board Resolution to set up CHC", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "Board resolution authorising CHC project and naming the project director" });
+      if (cat === "Rural_Youth") extra.push({ name: "Proof of Rural Residence + Age 18-45 (Aadhaar / Voter ID)", link: "https://uidai.gov.in/", note: "Rural youth entrepreneurship scheme — age and rural-status proof required" });
+    } else if (scheme === "FMB") {
+      extra.push({ name: "Society / SHG / FPO / Panchayat Registration Certificate", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "Cooperative Society (State Cooperative Act) / SHG (SRLM-registered) / FPO (SFAC)" });
+      extra.push({ name: "General Body / Executive Committee Resolution to establish Farm Machinery Bank", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "Resolution specifying village, machines to procure, and member beneficiary roster" });
+      extra.push({ name: "List of Member Farmers — Name, Aadhaar Number, Land Holdings", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "Beneficiary roster: at least 51% small & marginal farmers; women >= 30% where applicable" });
+      if (cat === "FRA") extra.push({ name: "Forest Rights Act (FRA) Patta Certificate — individual or community", link: "https://agrimachinery.nic.in/Farmer/Management/Index", note: "Required to claim 90% FMB subsidy rate for forest-dwelling ST families" });
+    } else if (scheme === "NAMO_DRONE_DIDI") {
+      extra.push({ name: "DAY-NRLM SHG Registration Certificate (State Rural Livelihood Mission)", link: "https://nrlm.gov.in/", note: "Active SHG member list, SHG name, federation, bank linkage, Aadhaar-seeded accounts" });
+      extra.push({ name: "SHG Resolution: Nominate 2 Women Members — Drone Pilot + Drone Assistant", link: "https://nrlm.gov.in/", note: "Resolution passed in general body meeting with nominee details, Aadhaar, and educational qualification" });
+      extra.push({ name: "Educational Certificate: Minimum 10th Pass (for nominated Pilot)", link: "https://dgca.gov.in/", note: "DGCA Remote Pilot License eligibility requires minimum 10th standard pass" });
+      extra.push({ name: "DGCA Remote Pilot Training Certificate / RPTO Completion Proof", link: "https://dgca.gov.in/", note: "15-day DGCA-certified training at empanelled Remote Pilot Training Organisation (RPTO)" });
+      extra.push({ name: "AIF Loan Application / SHG Bank Account / AIF Portal Registration", link: "https://agriinfra.dac.gov.in/", note: "20% balance (₹2 Lakhs on ₹10L package) funded via Agriculture Infrastructure Fund loan — 3% interest subvention for 7 years" });
+    }
+    list.innerHTML = [...base, ...extra].map(d => `
+      <li><span class="ft-check-icon">✓</span><div>
+      <b>${d.name}</b><br>
+      <span style="color:#64748b;font-size:12px;">${d.note}</span><br>
+      <a href="${d.link}" target="_blank" rel="noopener" class="ft-doc-link">Official Link ↗</a>
+      </div></li>`).join("");
+  }
+
+  function updateStepsList(scheme, stateCode) {
+    const list = document.getElementById("ft-steps-list");
+    if (!list) return;
+    const steps = [
+      `<b>Step 1 — Aadhaar-Based Farmer Registration:</b> Visit <a href="https://agrimachinery.nic.in/Farmer/Management/Index" target="_blank" style="color:#1b4d3e;">Central DBT Portal</a>. Search by Aadhaar Number. Create profile with mobile OTP authentication.`,
+      `<b>Step 2 — Upload Mandatory Documents:</b> Scan and upload Aadhaar, land record, bank passbook, and photograph. Ensure Name & Date of Birth match Aadhaar EXACTLY.`,
+      `<b>Step 3 — Select Machine & Empanelled Dealer:</b> Choose machine from scheme-specific list. Select an authorised dealer who has current-year price quotes registered on the portal. System validates dealer + machine combination.`,
+      `<b>Step 4 — Online Application & SLEC Approval:</b> Application submitted to State Level Executive Committee (SLEC). Digital sanction order issued. For CHC/FMB: DPR reviewed. For CRM: lottery / first-come selection process.`,
+      `<b>Step 5 — Purchase & Physical Verification:</b> Buy machine from empanelled dealer. Upload invoice and geo-tagged installation photograph. District Agriculture Officer verifies physical delivery on site.`,
+      `<b>Step 6 — DBT Release to Bank Account:</b> Subsidy credited DIRECTLY to your Aadhaar-seeded bank account — no middleman, no cash. Track status at <a href="https://agrimachinery.nic.in/index/tracking" target="_blank" style="color:#1b4d3e;">Tracking Portal ↗</a>.`
+    ];
+    if (scheme === "CRM") steps.splice(1, 0, `<b>CRM-Specific — State Portal Pre-Registration (BEFORE central application):</b> Register on your state CRM portal first. Haryana → <a href="https://agriharyana.gov.in/MechCRMScheme" target="_blank" style="color:#1b4d3e;">Meri Fasal Mera Byora</a> | Punjab → <a href="https://agrimachinerypb.com/" target="_blank" style="color:#1b4d3e;">Subam Mechanization Portal</a> | Uttar Pradesh → <a href="http://upagriculture.com/" target="_blank" style="color:#1b4d3e;">UP Agriculture DBT Portal</a>. Register crop, land holding, and desired CRM machine choice.`);
+    if (scheme === "CHC") {
+      steps.splice(1, 0, `<b>CHC-Specific — Bank Loan FIRST (before portal application):</b> Apply for term loan at your bank. Bank sanction letter is MANDATORY for portal submission. Subsidy is credit-linked: released amount adjusts directly against your loan principal — you do not receive cash.`);
+      steps.splice(2, 0, `<b>CHC-Specific — Prepare Detailed Project Report (DPR):</b> DPR must list machines with technical specifications, unit costs, land area, staff plan, operational model, and 5-year financial projection. Submit DPR to District Nodal Officer for SLEC review.`);
+    }
+    if (scheme === "FMB") steps.splice(1, 0, `<b>FMB-Specific — Entity Formation (if not already formed):</b> Register Cooperative Society (under State Cooperative Act) OR register SHG with State Rural Livelihood Mission (SRLM) OR register FPO with SFAC. Pass a General Body / Executive Committee resolution authorising the Farm Machinery Bank project.`);
+    if (scheme === "NAMO_DRONE_DIDI") {
+      steps.splice(1, 0, `<b>Namo Drone Didi — SHG Selection by SRLM (pre-requisite):</b> SHG must be selected by the State Rural Livelihood Mission (SRLM) and a Lead Fertilizer Company (LFC). Confirm SHG eligibility at <a href="https://nrlm.gov.in/" target="_blank" style="color:#1b4d3e;">NRLM Portal ↗</a>. Only selected SHGs can apply.`);
+      steps.splice(3, 0, `<b>Namo Drone Didi — DGCA Remote Pilot Training:</b> The nominated SHG member (Drone Pilot) must complete a 15-day DGCA-certified Remote Pilot Training course at an empanelled Remote Pilot Training Organisation (RPTO). Pass the skill test to obtain the DGCA Remote Pilot License.`);
+      steps.splice(5, 0, `<b>Namo Drone Didi — AIF Loan for 20% Balance Amount:</b> The remaining 20% (e.g. ₹2 Lakhs on a ₹10 Lakh drone package) is funded through an Agriculture Infrastructure Fund (AIF) loan at 3% interest subvention for 7 years. Apply at <a href="https://agriinfra.dac.gov.in/" target="_blank" style="color:#1b4d3e;">AIF Portal ↗</a>. The 80% central grant is released directly — you only repay the AIF loan.`);
+    }
+    if (stateCode) {
+      const st = STATES.find(s => s.code === stateCode);
+      if (st) steps.splice(2, 0, `<b>State-Specific Step — Register on ${st.name}:</b> Also register your profile on <a href="${st.portal}" target="_blank" style="color:#1b4d3e;">${st.portal_name} ↗</a>. This enables access to the state quota, application for state top-up (where available), and tracking of state-level disbursement timelines.`);
+    }
+    list.innerHTML = steps.map(s => `<li>${s}</li>`).join("");
+  }
+
+  function updateDocumentsListFromData(docs) {
+    const list = document.getElementById("ft-docs-list");
+    if (!list || !docs?.length) return;
+    list.innerHTML = docs.map(d => `
+      <li><span class="ft-check-icon">✓</span><div>
+      <b>${d.item}</b><br>
+      <span style="color:#64748b;font-size:12px;">${d.purpose || ""}</span><br>
+      <a href="${d.link || "#"}" target="_blank" rel="noopener" class="ft-doc-link">Official Link ↗</a>
+      </div></li>`).join("");
+  }
+
+  function updateStepsListFromData(process, statePortal) {
+    const list = document.getElementById("ft-steps-list");
+    if (!list || !process?.steps?.length) return;
+    list.innerHTML = process.steps.map(s => `<li>${s}</li>`).join("");
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initUI);
+  else initUI();
+})();
+</script>

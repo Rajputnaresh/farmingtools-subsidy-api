@@ -129,6 +129,94 @@ def export_full_db():
     print(f"✅ Exported {len(db)} machines to {out_file} ({out_file.stat().st_size:,} bytes)")
 
 
+def export_standalone_widget():
+    """Create a completely self-contained single-file standalone widget and update Shopify section."""
+    widget_path = BASE_DIR / "subsidy_widget.html"
+    if not widget_path.exists():
+        return
+
+    html_content = widget_path.read_text(encoding="utf-8")
+    states_content = (OUTPUT_DIR / "states_data.js").read_text(encoding="utf-8")
+    schemes_content = (OUTPUT_DIR / "scheme_data.js").read_text(encoding="utf-8")
+    db_content = (OUTPUT_DIR / "full_db.js").read_text(encoding="utf-8")
+
+    inlined_js = f"""<!-- Inlined Official Data Assets (Self-Contained Offline/Client Engine) -->
+<script>
+{states_content}
+{schemes_content}
+{db_content}
+</script>"""
+
+    target_scripts = """<script src="subsidy_data/states_data.js"></script>
+<script src="subsidy_data/scheme_data.js"></script>
+<script src="subsidy_data/full_db.js"></script>"""
+
+    if target_scripts in html_content:
+        standalone_html = html_content.replace(target_scripts, inlined_js)
+    else:
+        # Fallback if already modified
+        standalone_html = html_content
+
+    out_standalone = BASE_DIR / "subsidy_widget_standalone.html"
+    out_standalone.write_text(standalone_html, encoding="utf-8")
+    print(f"✅ Generated standalone single-file widget: {out_standalone.name} ({out_standalone.stat().st_size:,} bytes)")
+
+    # Update Shopify Liquid Section
+    liquid_file = BASE_DIR / "subsidy_calculator_section.liquid"
+    liquid_header = f"""{{% comment %}}
+  Shopify Section: Multi-Scheme Government Subsidy Calculator
+  File: sections/subsidy-calculator.liquid
+  Auto-generated from verified MoA&FW guidelines ({datetime.now().strftime('%Y-%m-%d')})
+  100% Free Forever, Zero Dependencies, Client-side Fallback + Optional AWS Lambda API
+{{% endcomment %}}
+
+{{% if section.settings.enable_calculator %}}
+<div class="ft-calc-section-wrapper" style="width:100%;margin:0 auto;box-sizing:border-box;">
+  {{% if section.settings.api_url != blank %}}
+  <script>
+    window.FT_SUBSIDY_API_URL = "{{{{ section.settings.api_url }}}}";
+  </script>
+  {{% endif %}}
+
+"""
+
+    liquid_footer = """
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Subsidy Calculator",
+  "tag": "section",
+  "class": "ft-calc-section-wrap",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_calculator",
+      "label": "Enable Subsidy Calculator",
+      "default": true,
+      "info": "Shows verified SMAM 2024, CRM, CHC, FMB & Drone Didi rates."
+    },
+    {
+      "type": "text",
+      "id": "api_url",
+      "label": "AWS Lambda API URL (Optional)",
+      "info": "Leave blank to use built-in offline engine, or enter your AWS Lambda Function URL for server sync."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Subsidy Calculator"
+    }
+  ]
+}
+{% endschema %}
+"""
+    liquid_content = liquid_header + standalone_html + liquid_footer
+    liquid_file.write_text(liquid_content, encoding="utf-8")
+    print(f"✅ Updated Shopify theme section: {liquid_file.name} ({liquid_file.stat().st_size:,} bytes)")
+
+
 def main():
     print("=" * 60)
     print("  EXPORTING SUBSIDY STATIC JAVASCRIPT DATA ASSETS")
@@ -136,8 +224,10 @@ def main():
     export_states()
     export_schemes()
     export_full_db()
-    print("✨ All static assets exported successfully.\n")
+    export_standalone_widget()
+    print("✨ All static assets and standalone widget exported successfully.\n")
 
 
 if __name__ == "__main__":
     main()
+
