@@ -2,10 +2,36 @@
 // Zero npm dependencies - uses native Node 22 fetch + WebSocket connecting to Chrome CDP
 import { spawn } from 'node:child_process';
 import { setTimeout as sleep } from 'node:timers/promises';
+import fs from 'node:fs';
+import os from 'node:os';
 
 const PORT = 9988;
 const CDP_PORT = 9223;
-const CHROME_PATH = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+
+function getChromePath() {
+  if (process.env.CHROME_BIN && fs.existsSync(process.env.CHROME_BIN)) {
+    return process.env.CHROME_BIN;
+  }
+  const platform = os.platform();
+  if (platform === 'darwin') {
+    return '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+  } else if (platform === 'win32') {
+    return 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+  } else {
+    const candidates = [
+      '/usr/bin/google-chrome',
+      '/usr/bin/google-chrome-stable',
+      '/usr/bin/chromium-browser',
+      '/usr/bin/chromium'
+    ];
+    for (const c of candidates) {
+      if (fs.existsSync(c)) return c;
+    }
+    return 'google-chrome';
+  }
+}
+
+const CHROME_PATH = getChromePath();
 
 async function main() {
   console.log('====================================================');
@@ -21,9 +47,11 @@ async function main() {
   await sleep(1500);
 
   // 2. Launch Google Chrome headless
-  console.log(`2. Launching Headless Chrome on CDP port ${CDP_PORT}...`);
+  console.log(`2. Launching Headless Chrome on CDP port ${CDP_PORT} using ${CHROME_PATH}...`);
   const chrome = spawn(CHROME_PATH, [
     '--headless=new',
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
     `--remote-debugging-port=${CDP_PORT}`,
     '--disable-gpu',
     '--no-first-run',
