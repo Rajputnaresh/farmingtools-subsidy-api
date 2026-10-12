@@ -1,5 +1,5 @@
 {
-  "last_sync_timestamp": "2026-10-11T21:44:37.473162+00:00",
+  "last_sync_timestamp": "2026-10-12T15:04:37.803981+00:00",
   "status": "synchronized_and_verified",
   "official_sources_monitored": 3,
   "portals_monitored": 9,
@@ -11,14 +11,14 @@
       "size": 1497634,
       "title": "Central SMAM 2024 Guidelines (Annexure-I/II)",
       "url": "https://agrimachinery.nic.in/Files/Guidelines/Guidelines_SMAM2024.pdf",
-      "last_verified": "2026-10-11T21:44:06.297958+00:00"
+      "last_verified": "2026-10-12T15:04:05.467954+00:00"
     },
     "CRM_2020": {
       "sha256": "d03864315798f4a8ba7df070fea54c0b657d97801cacbc2104d239235bc53936",
       "size": 937400,
       "title": "Crop Residue Management (CRM) Guidelines",
       "url": "https://agrimachinery.nic.in/Files/Guidelines/CRMGuideline2020-21.pdf",
-      "last_verified": "2026-10-11T21:44:09.908926+00:00"
+      "last_verified": "2026-10-12T15:04:09.954661+00:00"
     },
     "WB_FMS_2024": {
       "sha256": "f57beba58defefb87cfb135717c33831f7187b385fa52933583efe1c649556a0",
@@ -34,63 +34,63 @@
       "url": "https://agrimachinery.nic.in/Farmer/Management/Index",
       "status": "online",
       "status_code": 200,
-      "checked_at": "2026-10-11T21:43:30.615946+00:00"
+      "checked_at": "2026-10-12T15:03:09.764880+00:00"
     },
     {
       "name": "Central Assistance Calc",
       "url": "https://agrimachinery.nic.in/index/assistanceCalculator",
       "status": "online",
       "status_code": 200,
-      "checked_at": "2026-10-11T21:43:31.930752+00:00"
+      "checked_at": "2026-10-12T15:03:11.277027+00:00"
     },
     {
       "name": "Haryana MechCRM",
       "url": "https://agriharyana.gov.in/MechCRMScheme",
       "status": "timeout_or_error",
       "status_code": null,
-      "checked_at": "2026-10-11T21:43:40.211486+00:00"
+      "checked_at": "2026-10-12T15:03:19.586065+00:00"
     },
     {
       "name": "Punjab Agrimachinery",
       "url": "https://agrimachinerypb.com/",
       "status": "timeout_or_error",
       "status_code": null,
-      "checked_at": "2026-10-11T21:43:48.467953+00:00"
+      "checked_at": "2026-10-12T15:03:27.893908+00:00"
     },
     {
       "name": "UP Agriculture Portal",
       "url": "http://upagriculture.com/",
       "status": "timeout_or_error",
       "status_code": null,
-      "checked_at": "2026-10-11T21:43:50.475127+00:00"
+      "checked_at": "2026-10-12T15:03:45.188215+00:00"
     },
     {
       "name": "West Bengal Matir Katha",
       "url": "https://matirkatha.gov.in/",
       "status": "timeout_or_error",
       "status_code": null,
-      "checked_at": "2026-10-11T21:43:57.266826+00:00"
+      "checked_at": "2026-10-12T15:03:54.522827+00:00"
     },
     {
       "name": "Maharashtra MahaDBT",
       "url": "https://mahadbt.maharashtra.gov.in/",
       "status": "online",
       "status_code": 200,
-      "checked_at": "2026-10-11T21:43:58.604221+00:00"
+      "checked_at": "2026-10-12T15:03:55.932715+00:00"
     },
     {
       "name": "MP E-Krishi Yantra",
       "url": "https://dbt.mpdage.org/",
       "status": "online",
       "status_code": 200,
-      "checked_at": "2026-10-11T21:44:01.458896+00:00"
+      "checked_at": "2026-10-12T15:03:58.780930+00:00"
     },
     {
       "name": "Bihar OFMAS DBT",
       "url": "https://dbtagriculture.bihar.gov.in/",
       "status": "online",
       "status_code": 200,
-      "checked_at": "2026-10-11T21:44:02.682433+00:00"
+      "checked_at": "2026-10-12T15:04:00.240003+00:00"
     }
   ]
 }
