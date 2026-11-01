@@ -1,7 +1,7 @@
 {% comment %}
   Shopify Section: Multi-Scheme Government Subsidy Calculator
   File: sections/subsidy-calculator.liquid
-  Auto-generated from verified MoA&FW guidelines (2026-09-28)
+  Auto-generated from verified MoA&FW guidelines (2026-10-26)
   100% Free Forever, Zero Dependencies, Client-side Fallback + Optional AWS Lambda API
 {% endcomment %}
 
@@ -597,7 +597,7 @@
 <script>
 // State Registry (37 States and Union Territories)
 // Source: data/registration_info.json
-// Generated: 2026-09-28T11:38:24.501774
+// Generated: 2026-10-26T02:00:03.436298
 var STATES = [
   {
     "code": "1",
@@ -828,7 +828,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = { STATES
 
 // Scheme-specific documents and process steps
 // Source: data/registration_info.json
-// Generated: 2026-09-28T11:38:24.502759
+// Generated: 2026-10-26T02:00:03.437827
 var SCHEME_DOCS = {
   "SMAM": {
     "full_name": "Sub-Mission on Agricultural Mechanization (SMAM 2024)",
@@ -1081,7 +1081,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = { SCHEME
 
 // Full verified machinery database (175 machines)
 // Source: agrimachinery.nic.in SMAM 2024 Guidelines Annexure-II(c)
-// Generated: 2026-09-28T11:38:24.507332
+// Generated: 2026-10-26T02:00:03.444857
 var FULL_DB = {
   "smam_i_tractor_2wd_08-20": {
     "name": "Tractor 2WD (up to 20 PTO HP)",
@@ -5111,66 +5111,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = { FULL_D
   function initUI() {
     populateStateDropdown();
     populateMachineDropdown("ALL");
-    applyUrlParams();
     runCalculation();
-    syncWithCDN();
-  }
-
-  function applyUrlParams() {
-    try {
-      if (typeof window === "undefined" || !window.location) return;
-      var p = new URLSearchParams(window.location.search);
-      var qScheme = p.get("scheme");
-      var qState = p.get("state");
-      var qSearch = p.get("search") || p.get("q") || "";
-      var qMachine = p.get("machine");
-
-      if (qScheme && document.getElementById("ft-scheme")) {
-        document.getElementById("ft-scheme").value = qScheme;
-      }
-
-      if (qState && document.getElementById("ft-state")) {
-        var stateEl = document.getElementById("ft-state");
-        for (var i = 0; i < stateEl.options.length; i++) {
-          if (stateEl.options[i].value.toUpperCase() === qState.toUpperCase() ||
-              stateEl.options[i].textContent.toLowerCase().includes(qState.toLowerCase())) {
-            stateEl.selectedIndex = i;
-            break;
-          }
-        }
-      }
-
-      if (qSearch) {
-        var sInput = document.getElementById("ft-machine-search");
-        if (sInput) {
-          sInput.value = qSearch;
-          onSearchChange();
-        }
-      } else if (qMachine && document.getElementById("ft-machine")) {
-        document.getElementById("ft-machine").value = qMachine;
-      }
-    } catch (e) {
-      console.warn("Could not apply URL parameters", e);
-    }
-  }
-
-  function syncWithCDN() {
-    var cdnUrl = window.FT_SUBSIDY_CDN_URL || "https://rajputnaresh.github.io/farmingtools-subsidy-api/data/subsidy_master_latest.json";
-    fetch(cdnUrl)
-      .then(function(r) { return r.ok ? r.json() : null; })
-      .then(function(data) {
-        if (data && typeof data === "object") {
-          window.FULL_DB = Object.assign(window.FULL_DB || {}, data);
-          var curScheme = document.getElementById("ft-scheme") ? document.getElementById("ft-scheme").value : "ALL";
-          var curVal = document.getElementById("ft-machine") ? document.getElementById("ft-machine").value : "";
-          populateMachineDropdown(curScheme);
-          if (curVal) {
-            var sel = document.getElementById("ft-machine");
-            if (sel) sel.value = curVal;
-          }
-        }
-      })
-      .catch(function() {});
   }
 
   function populateStateDropdown() {

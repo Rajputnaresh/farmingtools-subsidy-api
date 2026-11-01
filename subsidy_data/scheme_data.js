@@ -1,6 +1,6 @@
 // Scheme-specific documents and process steps
 // Source: data/registration_info.json
-// Generated: 2026-09-28T11:38:24.502759
+// Generated: 2026-10-26T02:00:03.437827
 var SCHEME_DOCS = {
   "SMAM": {
     "full_name": "Sub-Mission on Agricultural Mechanization (SMAM 2024)",

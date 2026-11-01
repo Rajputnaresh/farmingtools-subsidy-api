@@ -1,6 +1,6 @@
 // State Registry (37 States and Union Territories)
 // Source: data/registration_info.json
-// Generated: 2026-09-28T11:38:24.501774
+// Generated: 2026-10-26T02:00:03.436298
 var STATES = [
   {
     "code": "1",
